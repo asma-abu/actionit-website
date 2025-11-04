@@ -1,4 +1,6 @@
 // app/page.tsx
+"use client"; // ✅ This makes it a Client Component
+
 import React from "react";
 
 export default function HomePage() {
