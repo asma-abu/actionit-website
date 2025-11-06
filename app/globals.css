@@ -46,3 +46,7 @@ body {
   --tw-text-opacity: 1;
   color: rgb(124 58 237 / var(--tw-text-opacity));
 }
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
