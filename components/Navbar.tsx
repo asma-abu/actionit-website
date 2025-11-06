@@ -16,7 +16,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="pointer-events-none sticky top-4 z-50 mx-auto w-full max-w-screen-2xl px-4">
+    <header className="sticky top-0 z-50 w-full pointer-events-none sticky z-50 mx-auto w-full max-w-screen-2xl px-4">
       {/* Glass container */}
       <nav
         className={[
@@ -43,7 +43,7 @@ export default function Navbar() {
               className="rounded-md"
             />
             <span className="text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
-              ActionIT
+              action.it
             </span>
           </Link>
         </div>
