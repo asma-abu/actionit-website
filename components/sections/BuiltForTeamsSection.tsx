@@ -1,9 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { teamTypes } from '../../config/content';
 
-export default function BuiltForTeamsSection(): JSX.Element {
+function BuiltForTeamsSection() {
+  if (!teamTypes || teamTypes.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-24 sm:py-32" aria-labelledby="teams-heading">
       <Container>
@@ -41,3 +46,4 @@ export default function BuiltForTeamsSection(): JSX.Element {
   );
 }
 
+export default memo(BuiltForTeamsSection);

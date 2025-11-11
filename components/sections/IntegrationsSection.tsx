@@ -1,9 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { integrations } from '../../config/content';
 
-export default function IntegrationsSection(): JSX.Element {
+function IntegrationsSection() {
+  if (!integrations || integrations.length === 0) {
+    return null;
+  }
+
   return (
     <section
       id="resources"
@@ -44,3 +49,4 @@ export default function IntegrationsSection(): JSX.Element {
   );
 }
 
+export default memo(IntegrationsSection);

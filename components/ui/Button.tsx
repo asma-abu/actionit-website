@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { memo } from 'react';
 import { cn } from '../../lib/utils';
 
 interface ButtonProps {
@@ -13,7 +14,7 @@ interface ButtonProps {
   type?: 'button' | 'submit';
 }
 
-export default function Button({
+function Button({
   label,
   href,
   onClick,
@@ -23,9 +24,9 @@ export default function Button({
   ariaLabel,
   className,
   type = 'button',
-}: ButtonProps): JSX.Element {
+}: ButtonProps) {
   const baseClasses =
-    'inline-flex items-center justify-center rounded-full font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-cyan-primary,#00B4D8)] disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center rounded-full font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-cyan-primary,#00B4D8)] disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]';
 
   const variantClasses = {
     primary:
@@ -75,3 +76,4 @@ export default function Button({
   );
 }
 
+export default memo(Button);

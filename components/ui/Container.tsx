@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { cn } from '../../lib/utils';
 
 interface ContainerProps {
@@ -15,15 +16,15 @@ const maxWidthClasses = {
   full: 'max-w-full',
 };
 
-export default function Container({
+function Container({
   children,
   maxWidth = '2xl',
   className,
-}: ContainerProps): JSX.Element {
+}: ContainerProps) {
   return (
     <div
       className={cn(
-        'mx-auto w-full px-6 md:px-12',
+        'mx-auto w-full px-4 sm:px-6 md:px-12',
         maxWidthClasses[maxWidth],
         className
       )}
@@ -33,3 +34,4 @@ export default function Container({
   );
 }
 
+export default memo(Container);

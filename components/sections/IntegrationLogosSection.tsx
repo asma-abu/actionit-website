@@ -1,9 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { integrationPartners } from '../../config/content';
 
-export default function IntegrationLogosSection(): JSX.Element {
+function IntegrationLogosSection() {
+  if (!integrationPartners || integrationPartners.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-16 sm:py-24" aria-labelledby="integrations-heading">
       <Container>
@@ -31,3 +36,4 @@ export default function IntegrationLogosSection(): JSX.Element {
   );
 }
 
+export default memo(IntegrationLogosSection);

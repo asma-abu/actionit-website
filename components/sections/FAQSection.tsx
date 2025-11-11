@@ -1,15 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import Container from '../ui/Container';
 import { faqs } from '../../config/content';
 
-export default function FAQSection(): JSX.Element {
+function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(null);
 
-  const handleToggle = (id: string): void => {
-    setOpenId(openId === id ? null : id);
-  };
+  const handleToggle = useCallback((id: string): void => {
+    setOpenId((prev) => (prev === id ? null : id));
+  }, []);
+
+  if (!faqs || faqs.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-24 sm:py-32" aria-labelledby="faq-heading">
@@ -25,53 +29,55 @@ export default function FAQSection(): JSX.Element {
 
         <div className="mx-auto mt-16 max-w-3xl">
           <dl className="space-y-6">
-            {faqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="rounded-2xl bg-white/60 p-6 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
-              >
-                <dt>
-                  <button
-                    type="button"
-                    className="flex w-full items-start justify-between text-left"
-                    onClick={() => handleToggle(faq.id)}
-                    aria-expanded={openId === faq.id}
-                    aria-controls={`faq-answer-${faq.id}`}
-                  >
-                    <span className="text-lg font-semibold text-zinc-900 dark:text-white">
-                      {faq.question}
-                    </span>
-                    <span className="ml-6 flex h-7 items-center">
-                      <svg
-                        className={`h-6 w-6 transform transition-transform ${
-                          openId === faq.id ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </dt>
-                <dd
-                  id={`faq-answer-${faq.id}`}
-                  className={`mt-4 overflow-hidden text-base leading-7 text-zinc-600 dark:text-zinc-400 ${
-                    openId === faq.id
-                      ? 'max-h-96 opacity-100'
-                      : 'max-h-0 opacity-0'
-                  } transition-all duration-300`}
+            {faqs.map((faq) => {
+              const isOpen = openId === faq.id;
+              return (
+                <div
+                  key={faq.id}
+                  className="rounded-2xl bg-white/60 p-6 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
                 >
-                  <p>{faq.answer}</p>
-                </dd>
-              </div>
-            ))}
+                  <dt>
+                    <button
+                      type="button"
+                      className="flex w-full items-start justify-between text-left focus:outline-none focus:ring-2 focus:ring-brand/40 rounded-lg"
+                      onClick={() => handleToggle(faq.id)}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${faq.id}`}
+                    >
+                      <span className="text-lg font-semibold text-zinc-900 dark:text-white pr-4">
+                        {faq.question}
+                      </span>
+                      <span className="ml-6 flex h-7 items-center flex-shrink-0">
+                        <svg
+                          className={`h-6 w-6 transform transition-transform ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </dt>
+                  <dd
+                    id={`faq-answer-${faq.id}`}
+                    className={`mt-4 overflow-hidden text-base leading-7 text-zinc-600 dark:text-zinc-400 transition-all duration-300 ${
+                      isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p>{faq.answer}</p>
+                  </dd>
+                </div>
+              );
+            })}
           </dl>
         </div>
       </Container>
@@ -79,3 +85,4 @@ export default function FAQSection(): JSX.Element {
   );
 }
 
+export default memo(FAQSection);

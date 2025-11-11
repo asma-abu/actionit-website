@@ -1,15 +1,17 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { painPoints } from '../../config/content';
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.ReactElement> = {
   Database: (
     <svg
       className="h-6 w-6"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -25,6 +27,7 @@ const iconMap: Record<string, JSX.Element> = {
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -40,6 +43,7 @@ const iconMap: Record<string, JSX.Element> = {
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -51,7 +55,11 @@ const iconMap: Record<string, JSX.Element> = {
   ),
 };
 
-export default function ProblemSection(): JSX.Element {
+function ProblemSection() {
+  if (!painPoints || painPoints.length === 0) {
+    return null;
+  }
+
   return (
     <section
       id="product"
@@ -76,29 +84,38 @@ export default function ProblemSection(): JSX.Element {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {painPoints.map((point) => (
-            <div
-              key={point.id}
-              className="flex flex-col rounded-2xl bg-white/60 p-8 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
-                {iconMap[point.icon] || (
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                )}
+          {painPoints.map((point) => {
+            const Icon = iconMap[point.icon];
+            return (
+              <div
+                key={point.id}
+                className="flex flex-col rounded-2xl bg-white/60 p-8 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                  {Icon || (
+                    <svg
+                      className="h-6 w-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  )}
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
+                  {point.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                  {point.description}
+                </p>
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
-                {point.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {point.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
   );
 }
 
+export default memo(ProblemSection);

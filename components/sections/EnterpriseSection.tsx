@@ -1,10 +1,15 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import { enterpriseBenefits } from '../../config/content';
 
-export default function EnterpriseSection(): JSX.Element {
+function EnterpriseSection() {
+  if (!enterpriseBenefits || enterpriseBenefits.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-24 sm:py-32" aria-labelledby="enterprise-heading">
       <Container>
@@ -52,3 +57,4 @@ export default function EnterpriseSection(): JSX.Element {
   );
 }
 
+export default memo(EnterpriseSection);

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { memo } from 'react';
 import Container from './ui/Container';
 
 const productLinks = [
@@ -10,7 +11,7 @@ const productLinks = [
   { href: '/ai-transcription', label: 'AI Transcription and Recording' },
   { href: '/ai-note-taker', label: 'AI Note Taker' },
   { href: '/integrations', label: 'Integrations' },
-];
+] as const;
 
 const solutionsLinks = [
   { href: '/enterprise', label: 'Enterprise' },
@@ -21,7 +22,7 @@ const solutionsLinks = [
   { href: '/sales', label: 'Sales' },
   { href: '/hr', label: 'HR' },
   { href: '/it', label: 'IT' },
-];
+] as const;
 
 const companyLinks = [
   { href: '/about', label: 'About Action.IT' },
@@ -31,15 +32,14 @@ const companyLinks = [
   { href: '/contact', label: 'Contact Us' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Use' },
-];
+] as const;
 
-export default function Footer(): JSX.Element {
+function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
       <Container>
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="mb-4">
                 <span className="text-xl font-semibold text-zinc-900 dark:text-white">
@@ -53,7 +53,6 @@ export default function Footer(): JSX.Element {
               </address>
             </div>
 
-            {/* Product Links */}
             <div>
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
                 Product
@@ -63,7 +62,7 @@ export default function Footer(): JSX.Element {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40 rounded"
                     >
                       {link.label}
                     </Link>
@@ -72,7 +71,6 @@ export default function Footer(): JSX.Element {
               </ul>
             </div>
 
-            {/* Solutions Links */}
             <div>
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
                 Solutions
@@ -82,7 +80,7 @@ export default function Footer(): JSX.Element {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40 rounded"
                     >
                       {link.label}
                     </Link>
@@ -91,7 +89,6 @@ export default function Footer(): JSX.Element {
               </ul>
             </div>
 
-            {/* Company Links */}
             <div>
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
                 Company
@@ -101,7 +98,7 @@ export default function Footer(): JSX.Element {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40 rounded"
                     >
                       {link.label}
                     </Link>
@@ -111,10 +108,9 @@ export default function Footer(): JSX.Element {
             </div>
           </div>
 
-          {/* Copyright */}
           <div className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              © 2025 Action.IT. All rights reserved.
+              © {new Date().getFullYear()} Action.IT. All rights reserved.
             </p>
           </div>
         </div>
@@ -123,3 +119,4 @@ export default function Footer(): JSX.Element {
   );
 }
 
+export default memo(Footer);

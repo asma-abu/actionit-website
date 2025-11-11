@@ -4,7 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
-  --brand: #7c3aed;              /* Purple 600 vibe */
+  --brand: #7c3aed; /* Purple 600 vibe */
   --brand-contrast: #ffffff;
   --muted: #f6f7f8;
 }
@@ -17,7 +17,8 @@
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -28,12 +29,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Optional hero gradient (Stripe-esque). Remove if you already have one. */
+/* Hero gradient - simplified to 2 color stops */
 .hero-gradient {
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(124, 58, 237, 0.35), transparent 60%),
-    radial-gradient(900px 500px at 80% 0%, rgba(14, 165, 233, 0.28), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(124, 58, 237, 0.35),
+      transparent 60%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
 }
 
 /* Utility for brand rings (used by focus-visible states) */
@@ -42,11 +45,47 @@ body {
 }
 
 /* Make a quick Tailwind color alias in utility classes */
-@utility brand {
-  --tw-text-opacity: 1;
-  color: rgb(124 58 237 / var(--tw-text-opacity));
+@layer utilities {
+  .brand {
+    --tw-text-opacity: 1;
+    color: rgb(124 58 237 / var(--tw-text-opacity));
+  }
 }
 
+/* Safe area inset for mobile devices */
 .safe-top {
   padding-top: env(safe-area-inset-top);
+}
+
+/* Glassmorphism - ONLY for stable use cases */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Consistent spacing scale (4px base unit) */
+/* Use: 4, 8, 12, 16, 20, 24, 32, 48, 64 */
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Ensure minimum touch target size */
+button,
+a,
+input[type='button'],
+input[type='submit'] {
+  min-height: 44px;
+  min-width: 44px;
 }

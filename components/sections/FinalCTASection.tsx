@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useCallback, memo } from 'react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 
@@ -10,67 +10,82 @@ interface Toast {
   description: string;
 }
 
-export default function FinalCTASection(): JSX.Element {
+function FinalCTASection() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
 
-  const validateEmail = (email: string): boolean => {
+  const validateEmail = useCallback((emailValue: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
+    return re.test(emailValue);
+  }, []);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+      e.preventDefault();
 
-    if (!email) return;
+      if (!email.trim()) {
+        setToast({
+          type: 'error',
+          title: 'Email required',
+          description: 'Please enter your email address.',
+        });
+        setTimeout(() => setToast(null), 5000);
+        return;
+      }
 
-    if (!validateEmail(email)) {
-      setToast({
-        type: 'error',
-        title: 'Invalid email',
-        description: 'Please enter a valid email address.',
-      });
-      setTimeout(() => setToast(null), 5000);
-      return;
-    }
+      if (!validateEmail(email)) {
+        setToast({
+          type: 'error',
+          title: 'Invalid email',
+          description: 'Please enter a valid email address.',
+        });
+        setTimeout(() => setToast(null), 5000);
+        return;
+      }
 
-    setIsSubmitting(true);
+      setIsSubmitting(true);
 
-    try {
-      // TODO: Replace with actual API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      try {
+        // TODO: Replace with actual API call
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setIsSubmitted(true);
-      setToast({
-        type: 'success',
-        title: "You're on the list!",
-        description:
-          "We'll notify you when action.it launches with your free month.",
-      });
-      setEmail('');
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setToast(null);
-      }, 5000);
-    } catch (error) {
-      setToast({
-        type: 'error',
-        title: 'Something went wrong',
-        description: 'Please try again later.',
-      });
-      setTimeout(() => setToast(null), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        setIsSubmitted(true);
+        setToast({
+          type: 'success',
+          title: "You're on the list!",
+          description:
+            "We'll notify you when action.it launches with your free month.",
+        });
+        setEmail('');
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setToast(null);
+        }, 5000);
+      } catch (error) {
+        setToast({
+          type: 'error',
+          title: 'Something went wrong',
+          description: 'Please try again later.',
+        });
+        setTimeout(() => setToast(null), 5000);
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [email, validateEmail]
+  );
 
-  const getButtonText = (): string => {
+  const getButtonText = useCallback((): string => {
     if (isSubmitted) return 'Added!';
     if (isSubmitting) return 'Adding...';
     return 'Get started';
-  };
+  }, [isSubmitted, isSubmitting]);
+
+  const handleCloseToast = useCallback(() => {
+    setToast(null);
+  }, []);
 
   return (
     <section className="py-24 sm:py-32" aria-labelledby="cta-heading">
@@ -85,12 +100,15 @@ export default function FinalCTASection(): JSX.Element {
           <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Leaders in 100+ countries trust Action.IT to capture their meetings.
             <br />
-            <span className="font-medium">Get started today. No credit card required.</span>
+            <span className="font-medium">
+              Get started today. No credit card required.
+            </span>
           </p>
 
           <form
             onSubmit={handleSubmit}
             className="mx-auto mt-10 flex max-w-md flex-col gap-4 sm:flex-row"
+            noValidate
           >
             <label htmlFor="email" className="sr-only">
               Email address
@@ -103,7 +121,10 @@ export default function FinalCTASection(): JSX.Element {
               placeholder="Enter your email for early access"
               required
               disabled={isSubmitting || isSubmitted}
-              className="min-w-0 flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[var(--brand-cyan-primary,#00B4D8)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-cyan-primary,#00B4D8)] disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder:text-zinc-500"
+              autoComplete="email"
+              aria-required="true"
+              aria-invalid={email && !validateEmail(email) ? 'true' : 'false'}
+              className="min-w-0 flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[var(--brand-cyan-primary,#00B4D8)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-cyan-primary,#00B4D8)] disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder:text-zinc-500 min-h-[44px]"
             />
             <Button
               type="submit"
@@ -116,7 +137,6 @@ export default function FinalCTASection(): JSX.Element {
           </form>
         </div>
 
-        {/* Toast Notification */}
         {toast && (
           <div
             className={`fixed bottom-4 right-4 z-50 max-w-sm rounded-lg ${
@@ -130,6 +150,7 @@ export default function FinalCTASection(): JSX.Element {
             }`}
             role="alert"
             aria-live="polite"
+            aria-atomic="true"
           >
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0">
@@ -138,6 +159,7 @@ export default function FinalCTASection(): JSX.Element {
                     className="h-5 w-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -150,6 +172,7 @@ export default function FinalCTASection(): JSX.Element {
                     className="h-5 w-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -165,11 +188,16 @@ export default function FinalCTASection(): JSX.Element {
               </div>
               <button
                 type="button"
-                onClick={() => setToast(null)}
-                className="flex-shrink-0 text-current opacity-50 hover:opacity-75"
+                onClick={handleCloseToast}
+                className="flex-shrink-0 text-current opacity-50 hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-current rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Close notification"
               >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
                   <path
                     fillRule="evenodd"
                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -185,3 +213,4 @@ export default function FinalCTASection(): JSX.Element {
   );
 }
 
+export default memo(FinalCTASection);

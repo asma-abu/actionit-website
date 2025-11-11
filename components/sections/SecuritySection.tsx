@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 
 const securityFeatures = [
@@ -7,9 +8,9 @@ const securityFeatures = [
   'No human access to data',
   'Immediate deletion',
   'SOC 2 & GDPR compliant',
-];
+] as const;
 
-export default function SecuritySection(): JSX.Element {
+function SecuritySection() {
   return (
     <section className="py-24 sm:py-32" aria-labelledby="security-heading">
       <Container>
@@ -34,12 +35,13 @@ export default function SecuritySection(): JSX.Element {
                 key={feature}
                 className="flex items-center gap-3 rounded-lg bg-white/60 p-4 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500 text-white">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0">
                   <svg
                     className="h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -58,19 +60,25 @@ export default function SecuritySection(): JSX.Element {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm">
             <div className="flex items-center gap-2">
-              <span className="text-green-600">✓</span>
+              <span className="text-green-600" aria-hidden="true">
+                ✓
+              </span>
               <span className="font-medium text-zinc-900 dark:text-white">
                 Security: Verified
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-600">✓</span>
+              <span className="text-green-600" aria-hidden="true">
+                ✓
+              </span>
               <span className="font-medium text-zinc-900 dark:text-white">
                 Privacy: Verified
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-600">✓</span>
+              <span className="text-green-600" aria-hidden="true">
+                ✓
+              </span>
               <span className="font-medium text-zinc-900 dark:text-white">
                 Compliance: Verified
               </span>
@@ -82,3 +90,4 @@ export default function SecuritySection(): JSX.Element {
   );
 }
 
+export default memo(SecuritySection);

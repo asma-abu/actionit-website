@@ -1,15 +1,17 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { steps } from '../../config/content';
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.ReactElement> = {
   Calendar: (
     <svg
       className="h-8 w-8"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -25,6 +27,7 @@ const iconMap: Record<string, JSX.Element> = {
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -40,6 +43,7 @@ const iconMap: Record<string, JSX.Element> = {
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -55,6 +59,7 @@ const iconMap: Record<string, JSX.Element> = {
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"
@@ -66,7 +71,11 @@ const iconMap: Record<string, JSX.Element> = {
   ),
 };
 
-export default function HowItWorksSection(): JSX.Element {
+function HowItWorksSection() {
+  if (!steps || steps.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-24 sm:py-32" aria-labelledby="how-it-works-heading">
       <Container>
@@ -83,27 +92,33 @@ export default function HowItWorksSection(): JSX.Element {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <div
-              key={step.id}
-              className="flex flex-col items-center text-center"
-            >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
-                {iconMap[step.icon] || (
-                  <span className="text-2xl font-bold">{index + 1}</span>
-                )}
+          {steps.map((step, index) => {
+            const Icon = iconMap[step.icon];
+            return (
+              <div
+                key={step.id}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                  {Icon || (
+                    <span className="text-2xl font-bold" aria-hidden="true">
+                      {index + 1}
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {step.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
   );
 }
 
+export default memo(HowItWorksSection);

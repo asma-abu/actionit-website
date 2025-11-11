@@ -1,9 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import Container from '../ui/Container';
 import { pillars } from '../../config/content';
 
-export default function SolutionPillarsSection(): JSX.Element {
+function SolutionPillarsSection() {
+  if (!pillars || pillars.length === 0) {
+    return null;
+  }
+
   return (
     <section
       id="solutions"
@@ -14,17 +19,30 @@ export default function SolutionPillarsSection(): JSX.Element {
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-8 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
             <span className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              <span
+                className="h-2 w-2 rounded-full bg-green-500"
+                aria-hidden="true"
+              />
               End-to-end encryption
             </span>
-            <span className="text-zinc-400">•</span>
+            <span className="text-zinc-400" aria-hidden="true">
+              •
+            </span>
             <span className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              <span
+                className="h-2 w-2 rounded-full bg-green-500"
+                aria-hidden="true"
+              />
               Immediate deletion
             </span>
-            <span className="text-zinc-400">•</span>
+            <span className="text-zinc-400" aria-hidden="true">
+              •
+            </span>
             <span className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              <span
+                className="h-2 w-2 rounded-full bg-green-500"
+                aria-hidden="true"
+              />
               Zero data retention
             </span>
           </div>
@@ -50,3 +68,4 @@ export default function SolutionPillarsSection(): JSX.Element {
   );
 }
 
+export default memo(SolutionPillarsSection);
