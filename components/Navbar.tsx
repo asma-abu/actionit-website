@@ -16,7 +16,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full pointer-events-none sticky z-50 mx-auto w-full max-w-screen-2xl px-4">
+    <header className="sticky top-0 z-50 w-full pointer-events-none mx-auto w-full max-w-screen-2xl px-4">
       {/* Glass container */}
       <nav
         className={[
@@ -36,8 +36,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.svg"
-              alt="ActionIT"
+              src="/ehanced_logo.png"
+              alt="action.it Logo"
               width={28}
               height={28}
               className="rounded-md"
@@ -51,11 +51,9 @@ export default function Navbar() {
         {/* Center: Nav */}
         <ul className="hidden items-center gap-6 md:flex">
           {[
-            { href: "/products", label: "Products" },
-            { href: "/solutions", label: "Solutions" },
-            { href: "/developers", label: "Developers" },
-            { href: "/resources", label: "Resources" },
-            { href: "/pricing", label: "Pricing" },
+            { href: "#product", label: "Product" },
+            { href: "#solutions", label: "Solutions" },
+            { href: "#resources", label: "Resources" },
           ].map((item) => (
             <li key={item.href}>
               <Link
@@ -71,17 +69,17 @@ export default function Navbar() {
         {/* Right: CTAs + Burger */}
         <div className="flex items-center gap-2">
           <Link
-            href="/signin"
+            href="/login"
             className="hidden rounded-full px-3 py-2 text-sm font-medium text-zinc-900/90 transition hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:text-zinc-200 md:inline-block"
           >
-            Sign in
+            Log in
           </Link>
 
           <Link
-            href="/contact"
+            href="/login"
             className="hidden rounded-full border border-white/20 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:bg-zinc-800/80 dark:text-white md:inline-block"
           >
-            Contact sales
+            Get started
           </Link>
 
           <button
@@ -126,11 +124,9 @@ export default function Navbar() {
       >
         <ul className="divide-y divide-white/10 text-sm dark:divide-white/5">
           {[
-            { href: "/products", label: "Products" },
-            { href: "/solutions", label: "Solutions" },
-            { href: "/developers", label: "Developers" },
-            { href: "/resources", label: "Resources" },
-            { href: "/pricing", label: "Pricing" },
+            { href: "#product", label: "Product" },
+            { href: "#solutions", label: "Solutions" },
+            { href: "#resources", label: "Resources" },
           ].map((item) => (
             <li key={item.href}>
               <Link
@@ -144,18 +140,18 @@ export default function Navbar() {
           ))}
           <li className="flex items-center gap-2 px-2 py-2">
             <Link
-              href="/signin"
+              href="/login"
               onClick={() => setOpen(false)}
               className="flex-1 rounded-lg px-3 py-2 text-center font-medium text-zinc-900/90 transition hover:bg-white/70 hover:text-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800/70"
             >
-              Sign in
+              Log in
             </Link>
             <Link
-              href="/contact"
+              href="/login"
               onClick={() => setOpen(false)}
               className="flex-1 rounded-lg border border-white/20 bg-white/80 px-3 py-2 text-center font-semibold text-zinc-900 shadow-sm transition hover:bg-white dark:border-white/10 dark:bg-zinc-800/80 dark:text-white"
             >
-              Contact sales
+              Get started
             </Link>
           </li>
         </ul>
