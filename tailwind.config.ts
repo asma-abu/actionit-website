@@ -12,6 +12,38 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brand: {
+          cyan: {
+            primary: "var(--brand-cyan-primary)",
+            light: "var(--brand-cyan-light)",
+            lighter: "var(--brand-cyan-lighter)",
+          },
+          coral: {
+            primary: "var(--brand-coral-primary)",
+            light: "var(--brand-coral-light)",
+          },
+          purple: "var(--brand-purple)",
+          "purple-deep": "var(--brand-purple-deep)",
+          navy: "var(--brand-navy)",
+        },
+        neutral: {
+          50: "var(--neutral-50)",
+          100: "var(--neutral-100)",
+          200: "var(--neutral-200)",
+          300: "var(--neutral-300)",
+          400: "var(--neutral-400)",
+          500: "var(--neutral-500)",
+          600: "var(--neutral-600)",
+          700: "var(--neutral-700)",
+          800: "var(--neutral-800)",
+          900: "var(--neutral-900)",
+          950: "var(--neutral-950)",
+        },
+        success: "var(--color-success)",
+        warning: "var(--color-warning)",
+        error: "var(--color-error)",
+        info: "var(--color-info)",
+        // Legacy support
         primary: {
           "50": "#eff6ff",
           "100": "#dbeafe",
@@ -27,7 +59,15 @@ const config: Config = {
         },
       },
       fontFamily: {
+        display: [
+          "Satoshi",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "sans-serif",
+        ],
         body: [
+          "var(--font-inter)",
           "Inter",
           "ui-sans-serif",
           "system-ui",
@@ -45,6 +85,7 @@ const config: Config = {
           "Noto Color Emoji",
         ],
         sans: [
+          "var(--font-inter)",
           "Inter",
           "ui-sans-serif",
           "system-ui",
@@ -61,6 +102,18 @@ const config: Config = {
           "Segoe UI Symbol",
           "Noto Color Emoji",
         ],
+        mono: [
+          "SF Mono",
+          "Monaco",
+          "Inconsolata",
+          "Fira Code",
+          "monospace",
+        ],
+      },
+      transitionTimingFunction: {
+        "brand-fast": "var(--transition-fast)",
+        "brand-base": "var(--transition-base)",
+        "brand-slow": "var(--transition-slow)",
       },
     },
   },

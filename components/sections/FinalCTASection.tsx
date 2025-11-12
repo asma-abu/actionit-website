@@ -63,7 +63,7 @@ function FinalCTASection() {
           setIsSubmitted(false);
           setToast(null);
         }, 5000);
-      } catch (error) {
+      } catch {
         setToast({
           type: 'error',
           title: 'Something went wrong',

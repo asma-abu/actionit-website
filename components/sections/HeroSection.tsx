@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState, useCallback, memo } from 'react';
+import Image from 'next/image';
 import Button from '../ui/Button';
 import Container from '../ui/Container';
 
@@ -52,11 +52,16 @@ function HeroSection() {
 
       <Container className="relative pt-16 pb-24 md:pt-20 md:pb-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          <div className="hidden lg:block lg:order-1" aria-hidden="true">
-            <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 flex items-center justify-center">
-              <span className="text-zinc-400 dark:text-zinc-600 text-sm">
-                Mockup placeholder
-              </span>
+          <div className="hidden lg:block lg:order-1">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-zinc-900/5 dark:ring-white/10">
+              <Image
+                src="/mock-card.png"
+                alt="Action.IT meeting assistant interface mockup"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 0vw, 50vw"
+              />
             </div>
           </div>
 

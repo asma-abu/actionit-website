@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive brand guidelines and design system documentation">
+    <meta property="og:title" content="Brand Guidelines - Design System">
+    <meta property="og:description" content="Complete visual identity system with logo variations, color palette, typography, and usage guidelines">
+    <meta property="og:type" content="website">
+    
+    <title>Brand Guidelines - Design System v2.1</title>
+    
+    <!-- Premium Fonts: Satoshi (Display) + Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Satoshi Font (Premium alternative) - Using system fonts as fallback for demo -->
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+    </style>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS & CSS VARIABLES
+           Following a proper design system structure
+           ============================================ */
+        
+        :root {
+            /* Brand Colors */
+            --brand-cyan-primary: #00B4D8;
+            --brand-cyan-light: #0EA5E9;
+            --brand-cyan-lighter: #7DD3FC;
+            --brand-coral-primary: #FE4B58;
+            --brand-coral-light: #FF6B7A;
+            --brand-purple: #6366F1;
+            --brand-purple-deep: #4F46E5;
+            
+            /* Neutral Scale */
+            --neutral-50: #F8FAFC;
+            --neutral-100: #F1F5F9;
+            --neutral-200: #E2E8F0;
+            --neutral-300: #CBD5E1;
+            --neutral-400: #94A3B8;
+            --neutral-500: #64748B;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1E293B;
+            --neutral-900: #0F172A;
+            --neutral-950: #020617;
+            
+            /* Semantic Colors */
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+            --color-error: #EF4444;
+            --color-info: #3B82F6;
+            
+            /* Typography Scale */
+            --font-display: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+            
+            /* Type Scale (Perfect Fourth - 1.333) */
+            --text-xs: 0.75rem;      /* 12px */
+            --text-sm: 0.875rem;     /* 14px */
+            --text-base: 1rem;       /* 16px */
+            --text-lg: 1.125rem;     /* 18px */
+            --text-xl: 1.333rem;     /* 21px */
+            --text-2xl: 1.777rem;    /* 28px */
+            --text-3xl: 2.369rem;    /* 38px */
+            --text-4xl: 3.157rem;    /* 50px */
+            --text-5xl: 4.209rem;    /* 67px */
+            --text-6xl: 5.61rem;     /* 90px */
+            
+            /* Spacing Scale (8px base) */
+            --space-1: 0.25rem;   /* 4px */
+            --space-2: 0.5rem;    /* 8px */
+            --space-3: 0.75rem;   /* 12px */
+            --space-4: 1rem;      /* 16px */
+            --space-5: 1.25rem;   /* 20px */
+            --space-6: 1.5rem;    /* 24px */
+            --space-8: 2rem;      /* 32px */
+            --space-10: 2.5rem;   /* 40px */
+            --space-12: 3rem;     /* 48px */
+            --space-16: 4rem;     /* 64px */
+            --space-20: 5rem;     /* 80px */
+            --space-24: 6rem;     /* 96px */
+            --space-32: 8rem;     /* 128px */
+            
+            /* Radius Scale */
+            --radius-sm: 0.375rem;   /* 6px */
+            --radius-md: 0.5rem;     /* 8px */
+            --radius-lg: 0.75rem;    /* 12px */
+            --radius-xl: 1rem;       /* 16px */
+            --radius-2xl: 1.5rem;    /* 24px */
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        /* ============================================
+           BASE STYLES & RESETS
+           ============================================ */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--neutral-900);
+            background: var(--neutral-50);
+            overflow-x: hidden;
+        }
+        
+        ::selection {
+            background-color: var(--brand-cyan-primary);
+            color: white;
+        }
+        
+        /* ============================================
+           TYPOGRAPHY SYSTEM
+           ============================================ */
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--neutral-950);
+        }
+        
+        h1 { font-size: var(--text-5xl); margin-bottom: var(--space-6); }
+        h2 { font-size: var(--text-4xl); margin-bottom: var(--space-5); }
+        h3 { font-size: var(--text-3xl); margin-bottom: var(--space-4); }
+        h4 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
+        h5 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+        h6 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+        
+        p {
+            margin-bottom: var(--space-4);
+            color: var(--neutral-700);
+        }
+        
+        a {
+            color: var(--brand-cyan-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--brand-cyan-light);
+        }
+        
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            padding: 0.125rem 0.375rem;
+            background: var(--neutral-100);
+            border: 1px solid var(--neutral-200);
+            border-radius: var(--radius-sm);
+            color: var(--brand-purple-deep);
+        }
+        
+        /* ============================================
+           NAVIGATION
+           Premium fixed navigation with backdrop blur
+           ============================================ */
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--neutral-200);
+            transition: all var(--transition-base);
+        }
+        
+        .nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: var(--space-4) var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--brand-cyan-primary), var(--brand-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-version {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            background: var(--neutral-100);
+            border-radius: var(--radius-full);
+            color: var(--neutral-600);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-8);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            position: relative;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--neutral-600);
+            transition: color var(--transition-fast);
+            padding: var(--space-2) 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-cyan-primary);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-links a:hover {
+            color: var(--brand-cyan-primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+        }
+        
+        /* ============================================
+           SIDEBAR TABLE OF CONTENTS
+           Premium sticky sidebar navigation
+           ============================================ */
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 80px;
+            width: 280px;
+            height: calc(100vh - 80px);
+            background: white;
+            border-right: 1px solid var(--neutral-200);
+            padding: var(--space-8) var(--space-6);
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform var(--transition-base);
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--neutral-300);
+            border-radius: var(--radius-full);
+        }
+        
+        .sidebar-title {
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--neutral-500);
+            margin-bottom: var(--space-4);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            margin-bottom: var(--space-2);
+        }
+        
+        .toc-link {
+            display: block;
+            padding: var(--space-2) var(--space-3);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--neutral-600);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .toc-link:hover {
+            background: var(--neutral-100);
+            color: var(--brand-cyan-primary);
+            transform: translateX(4px);
+        }
+        
+        .toc-link.active {
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--brand-cyan-primary);
+            font-weight: 600;
+        }
+        
+        .toc-sublist {
+            list-style: none;
+            margin-left: var(--space-4);
+            margin-top: var(--space-2);
+        }
+        
+        /* ============================================
+           MAIN LAYOUT
+           ============================================ */
+        
+        .main-wrapper {
+            margin-left: 280px;
+            padding-top: 80px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-16) var(--space-8);
+        }
+        
+        section {
+            margin-bottom: var(--space-24);
+            scroll-margin-top: 100px;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           Premium gradient hero with animations
+           ============================================ */
+        
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: var(--space-24) var(--space-8);
+            background: linear-gradient(135deg, 
+                rgba(0, 180, 216, 0.05) 0%, 
+                rgba(99, 102, 241, 0.05) 100%);
+            border-radius: var(--radius-2xl);
+            margin-bottom: var(--space-20);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: var(--text-6xl);
+            font-weight: 900;
+            margin-bottom: var(--space-6);
+            background: linear-gradient(135deg, var(--brand-cyan-primary), var(--brand-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--text-xl);
+            color: var(--neutral-600);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-meta {
+            display: flex;
+            gap: var(--space-6);
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            color: var(--neutral-600);
+        }
+        
+        .hero-meta-label {
+            font-weight: 600;
+            color: var(--neutral-900);
+        }
+        
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+        
+        .section-header {
+            margin-bottom: var(--space-12);
+        }
+        
+        .section-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            margin-bottom: var(--space-4);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-cyan-primary), var(--brand-purple));
+            border-radius: var(--radius-full);
+        }
+        
+        .section-description {
+            font-size: var(--text-lg);
+            color: var(--neutral-600);
+            max-width: 800px;
+            line-height: 1.7;
+        }
+        
+        /* ============================================
+           LOGO GRID
+           Premium card grid with hover effects
+           ============================================ */
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+        
+        .logo-card {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            position: relative;
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--brand-cyan-primary);
+        }
+        
+        .logo-display {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-12);
+            position: relative;
+            background: white;
+        }
+        
+        .logo-display img {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: contain;
+            transition: transform var(--transition-base);
+        }
+        
+        .logo-card:hover .logo-display img {
+            transform: scale(1.05);
+        }
+        
+        .logo-display.dark-bg {
+            background: var(--neutral-900);
+        }
+        
+        .logo-display.cyan-bg {
+            background: var(--brand-cyan-primary);
+        }
+        
+        .logo-display.gradient-bg {
+            background: linear-gradient(135deg, var(--brand-cyan-lighter), var(--brand-purple));
+        }
+        
+        .logo-info {
+            padding: var(--space-6);
+            border-top: 1px solid var(--neutral-200);
+        }
+        
+        .logo-name {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            color: var(--neutral-900);
+        }
+        
+        .logo-usage {
+            font-size: var(--text-sm);
+            color: var(--neutral-600);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+        }
+        
+        .logo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+        
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+        
+        .tag-primary {
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--brand-cyan-primary);
+        }
+        
+        .tag-secondary {
+            background: rgba(254, 75, 88, 0.1);
+            color: var(--brand-coral-primary);
+        }
+        
+        .tag-neutral {
+            background: var(--neutral-100);
+            color: var(--neutral-700);
+        }
+        
+        /* ============================================
+           COLOR SYSTEM
+           Interactive color cards with copy functionality
+           ============================================ */
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-12);
+        }
+        
+        .color-card {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .color-swatch {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-5xl);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-swatch::after {
+            content: 'Click to copy';
+            position: absolute;
+            bottom: var(--space-4);
+            right: var(--space-4);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            padding: 0.375rem 0.75rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .color-card:hover .color-swatch::after {
+            opacity: 1;
+        }
+        
+        .color-info {
+            padding: var(--space-5);
+        }
+        
+        .color-name {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            color: var(--neutral-900);
+        }
+        
+        .color-values {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .color-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--text-sm);
+        }
+        
+        .color-value-label {
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+        
+        .color-value-code {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            padding: 0.25rem 0.5rem;
+            background: var(--neutral-100);
+            border-radius: var(--radius-sm);
+            color: var(--neutral-900);
+        }
+        
+        .color-usage-text {
+            font-size: var(--text-sm);
+            color: var(--neutral-600);
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--neutral-200);
+        }
+        
+        /* Copy notification */
+        .copy-notification {
+            position: fixed;
+            bottom: var(--space-8);
+            right: var(--space-8);
+            padding: var(--space-4) var(--space-6);
+            background: var(--neutral-900);
+            color: white;
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            box-shadow: var(--shadow-2xl);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-base);
+        }
+        
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           TYPOGRAPHY SPECIMENS
+           ============================================ */
+        
+        .type-specimen {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-12);
+            margin-top: var(--space-12);
+        }
+        
+        .type-sample {
+            padding: var(--space-10) 0;
+            border-bottom: 1px solid var(--neutral-200);
+        }
+        
+        .type-sample:last-child {
+            border-bottom: none;
+        }
+        
+        .type-label {
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--neutral-500);
+            margin-bottom: var(--space-4);
+        }
+        
+        .type-display {
+            margin-bottom: var(--space-3);
+        }
+        
+        .type-meta {
+            font-size: var(--text-sm);
+            color: var(--neutral-500);
+            font-family: var(--font-mono);
+        }
+        
+        /* Typography styles */
+        .display-1 { font-family: var(--font-display); font-size: var(--text-6xl); font-weight: 900; line-height: 1.1; }
+        .display-2 { font-family: var(--font-display); font-size: var(--text-5xl); font-weight: 800; line-height: 1.1; }
+        .heading-1 { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; line-height: 1.2; }
+        .heading-2 { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700; line-height: 1.2; }
+        .heading-3 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; line-height: 1.3; }
+        .body-xl { font-size: var(--text-xl); line-height: 1.7; }
+        .body-lg { font-size: var(--text-lg); line-height: 1.6; }
+        .body-base { font-size: var(--text-base); line-height: 1.6; }
+        .body-sm { font-size: var(--text-sm); line-height: 1.5; }
+        
+        /* ============================================
+           BUTTONS & COMPONENTS
+           ============================================ */
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            border-radius: var(--radius-lg);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--brand-cyan-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            background: var(--brand-cyan-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--brand-coral-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--brand-coral-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--brand-cyan-primary);
+            border: 2px solid var(--brand-cyan-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--brand-cyan-primary);
+            color: white;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--neutral-700);
+        }
+        
+        .btn-ghost:hover {
+            background: var(--neutral-100);
+        }
+        
+        .btn-lg {
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-base);
+        }
+        
+        /* ============================================
+           CALLOUT BOXES
+           ============================================ */
+        
+        .callout {
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid;
+            margin: var(--space-8) 0;
+        }
+        
+        .callout-title {
+            font-size: var(--text-base);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .callout-content {
+            font-size: var(--text-sm);
+            color: var(--neutral-700);
+        }
+        
+        .callout-info {
+            background: rgba(59, 130, 246, 0.05);
+            border-left-color: var(--color-info);
+        }
+        
+        .callout-success {
+            background: rgba(16, 185, 129, 0.05);
+            border-left-color: var(--color-success);
+        }
+        
+        .callout-warning {
+            background: rgba(245, 158, 11, 0.05);
+            border-left-color: var(--color-warning);
+        }
+        
+        .callout-error {
+            background: rgba(239, 68, 68, 0.05);
+            border-left-color: var(--color-error);
+        }
+        
+        /* ============================================
+           DO'S AND DON'TS
+           ============================================ */
+        
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+        
+        .do-dont-card {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+        }
+        
+        .do-dont-header {
+            padding: var(--space-5) var(--space-6);
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .do-header {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-success);
+        }
+        
+        .dont-header {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--color-error);
+        }
+        
+        .do-dont-content {
+            padding: var(--space-6);
+        }
+        
+        .do-dont-list {
+            list-style: none;
+        }
+        
+        .do-dont-list li {
+            padding: var(--space-3) 0;
+            padding-left: var(--space-8);
+            position: relative;
+            color: var(--neutral-700);
+            line-height: 1.6;
+        }
+        
+        .do-dont-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--color-success);
+        }
+        
+        .dont-header + .do-dont-content li::before {
+            content: '✗';
+            color: var(--color-error);
+        }
+        
+        /* ============================================
+           CODE SNIPPETS
+           ============================================ */
+        
+        .code-block {
+            position: relative;
+            background: var(--neutral-900);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-8) 0;
+            overflow-x: auto;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .code-language {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--neutral-400);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .code-copy-btn {
+            padding: 0.375rem 0.75rem;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .code-copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .code-content {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            color: #E5E7EB;
+        }
+        
+        .code-content .token-property { color: #60A5FA; }
+        .code-content .token-value { color: #34D399; }
+        .code-content .token-string { color: #FCD34D; }
+        
+        /* ============================================
+           DOWNLOAD SECTION
+           ============================================ */
+        
+        .download-section {
+            background: linear-gradient(135deg, var(--brand-cyan-primary), var(--brand-purple));
+            border-radius: var(--radius-2xl);
+            padding: var(--space-20);
+            text-align: center;
+            color: white;
+            margin-top: var(--space-24);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite;
+        }
+        
+        .download-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            margin-bottom: var(--space-4);
+            color: white;
+        }
+        
+        .download-description {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-8);
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-actions {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-download {
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-base);
+            font-weight: 700;
+            background: white;
+            color: var(--brand-cyan-primary);
+            border-radius: var(--radius-lg);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        
+        .footer {
+            background: var(--neutral-900);
+            color: var(--neutral-400);
+            padding: var(--space-12) 0;
+            margin-top: var(--space-24);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-8);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-12);
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-4);
+        }
+        
+        .footer-description {
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            margin-bottom: var(--space-6);
+        }
+        
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: var(--text-base);
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-4);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-2);
+        }
+        
+        .footer-links a {
+            font-size: var(--text-sm);
+            color: var(--neutral-400);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-8) var(--space-8) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+        
+        .footer-copyright {
+            font-size: var(--text-sm);
+        }
+        
+        .footer-meta {
+            display: flex;
+            gap: var(--space-6);
+            font-size: var(--text-sm);
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-wrapper {
+                margin-left: 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --text-6xl: 3rem;
+                --text-5xl: 2.5rem;
+                --text-4xl: 2rem;
+            }
+            
+            .hero-title {
+                font-size: var(--text-4xl);
+            }
+            
+            .container {
+                padding: var(--space-12) var(--space-6);
+            }
+            
+            .logo-grid,
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+            
+            .download-section {
+                padding: var(--space-12);
+            }
+        }
+        
+        /* ============================================
+           PRINT STYLES
+           For PDF generation
+           ============================================ */
+        
+        @media print {
+            .nav,
+            .sidebar,
+            .footer,
+            .download-section {
+                display: none;
+            }
+            
+            .main-wrapper {
+                margin-left: 0;
+                padding-top: 0;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .logo-card,
+            .color-card,
+            .type-specimen {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-8 { margin-bottom: var(--space-8); }
+        .mt-8 { margin-top: var(--space-8); }
+        .mt-12 { margin-top: var(--space-12); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">Brand Guidelines</div>
+                <div class="nav-version">v2.1.0</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#logo">Logo</a></li>
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#guidelines">Guidelines</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-ghost" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+                        <path d="M6 14h12v8H6z"/>
+                    </svg>
+                    Print
+                </button>
+                <button class="btn btn-primary" onclick="downloadGuidelines()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    Download
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar TOC -->
+    <aside class="sidebar">
+        <div class="sidebar-title">Contents</div>
+        <ul class="toc-list">
+            <li class="toc-item">
+                <a href="#overview" class="toc-link">Overview</a>
+            </li>
+            <li class="toc-item">
+                <a href="#logo" class="toc-link">Logo System</a>
+                <ul class="toc-sublist">
+                    <li class="toc-item"><a href="#logo-primary" class="toc-link">Primary Logos</a></li>
+                    <li class="toc-item"><a href="#logo-variations" class="toc-link">Variations</a></li>
+                </ul>
+            </li>
+            <li class="toc-item">
+                <a href="#colors" class="toc-link">Color Palette</a>
+                <ul class="toc-sublist">
+                    <li class="toc-item"><a href="#colors-primary" class="toc-link">Primary Colors</a></li>
+                    <li class="toc-item"><a href="#colors-secondary" class="toc-link">Secondary Colors</a></li>
+                    <li class="toc-item"><a href="#colors-neutral" class="toc-link">Neutral Scale</a></li>
+                </ul>
+            </li>
+            <li class="toc-item">
+                <a href="#typography" class="toc-link">Typography</a>
+            </li>
+            <li class="toc-item">
+                <a href="#components" class="toc-link">Components</a>
+            </li>
+            <li class="toc-item">
+                <a href="#guidelines" class="toc-link">Usage Guidelines</a>
+            </li>
+            <li class="toc-item">
+                <a href="#resources" class="toc-link">Resources</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero" id="overview">
+                <div class="hero-content">
+                    <h1 class="hero-title">Brand Guidelines</h1>
+                    <p class="hero-subtitle">Your comprehensive visual identity system for building consistent, beautiful brand experiences across all touchpoints.</p>
+                    <div class="hero-meta">
+                        <div class="hero-meta-item">
+                            <span class="hero-meta-label">Version:</span> 2.1.0
+                        </div>
+                        <div class="hero-meta-item">
+                            <span class="hero-meta-label">Updated:</span> October 2025
+                        </div>
+                        <div class="hero-meta-item">
+                            <span class="hero-meta-label">Status:</span> Current
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logo Section -->
+            <section id="logo">
+                <div class="section-header">
+                    <h2 class="section-title">Logo System</h2>
+                    <p class="section-description">Our logo is built from two fundamental geometric shapes: a rounded triangle and a circle. This minimalist approach creates a modern, memorable mark that maintains clarity and impact across all applications and scales.</p>
+                </div>
+
+                <h3 id="logo-primary">Primary Logo Variations</h3>
+                <div class="logo-grid">
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-primary-color.jpg" alt="Primary Logo">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Primary Logo</div>
+                            <div class="logo-usage">Full-color version with Electric Cyan. This is the default logo for most applications, providing maximum brand recognition.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-primary">Primary</span>
+                                <span class="tag tag-neutral">Digital</span>
+                                <span class="tag tag-neutral">Print</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-monochrome-dark.jpg" alt="Monochrome Logo">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Monochrome</div>
+                            <div class="logo-usage">Single-color version in Deep Navy. Use on light backgrounds when color reproduction isn't available.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Light BG</span>
+                                <span class="tag tag-neutral">Print</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display dark-bg">
+                            <img src="images/logo-reversed-light.jpg" alt="Reversed Logo">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Reversed</div>
+                            <div class="logo-usage">White version for dark backgrounds. Maintains excellent visibility and brand presence on navy, black, or dark photography.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Dark BG</span>
+                                <span class="tag tag-neutral">Photography</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 id="logo-variations" class="mt-12">Alternative Color Variations</h3>
+                <div class="logo-grid">
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-primary-cyan.jpg" alt="Bright Cyan">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Bright Cyan</div>
+                            <div class="logo-usage">High-contrast cyan for digital applications requiring enhanced visibility.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Digital</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-secondary-pink.jpg" alt="Pink Variant">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Coral Pink</div>
+                            <div class="logo-usage">Special campaigns or accent applications. Use sparingly for visual variety.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-secondary">Alternative</span>
+                                <span class="tag tag-neutral">Campaigns</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-secondary-purple.jpg" alt="Purple Variant">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Deep Purple</div>
+                            <div class="logo-usage">Premium applications or co-branding scenarios requiring differentiation.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-secondary">Alternative</span>
+                                <span class="tag tag-neutral">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-outline-purple-cyan.jpg" alt="Purple Cyan">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Purple + Cyan Outline</div>
+                            <div class="logo-usage">Dual-color for dimensional effect in special applications.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Special Use</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display light-bg">
+                            <img src="images/logo-outline-pink-purple.jpg" alt="Pink Purple">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Pink + Purple Outline</div>
+                            <div class="logo-usage">Vibrant dual-color variation for energetic brand moments.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Special Use</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-card">
+                        <div class="logo-display cyan-bg">
+                            <img src="images/logo-outline-dark-cyan.jpg" alt="Dark on Cyan">
+                        </div>
+                        <div class="logo-info">
+                            <div class="logo-name">Dark on Cyan</div>
+                            <div class="logo-usage">Navy logo on cyan background for strong branded presence.</div>
+                            <div class="logo-tags">
+                                <span class="tag tag-neutral">Branded BG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout callout-warning mt-8">
+                    <div class="callout-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Logo Usage Requirements
+                    </div>
+                    <div class="callout-content">
+                        <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                            <li>Always maintain clear space equal to the height of the dot around the logo</li>
+                            <li>Never stretch, distort, rotate, or apply effects to the logo</li>
+                            <li>Minimum size: 32px height for digital, 0.5 inches for print</li>
+                            <li>Use appropriate version based on background color and context</li>
+                            <li>Never place logo on busy backgrounds without sufficient contrast</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Color System -->
+            <section id="colors">
+                <div class="section-header">
+                    <h2 class="section-title">Color System</h2>
+                    <p class="section-description">Our vibrant, modern color palette is designed for maximum impact and accessibility. Each color has been carefully selected and tested to ensure WCAG compliance and beautiful visual harmony across digital and print applications.</p>
+                </div>
+
+                <h3 id="colors-primary">Primary Colors</h3>
+                <p class="section-description" style="margin-bottom: 2rem;">The core brand colors that define our visual identity.</p>
+                
+                <div class="color-grid">
+                    <div class="color-card" onclick="copyToClipboard('#00B4D8', 'Electric Cyan')">
+                        <div class="color-swatch" style="background: #00B4D8;">▲</div>
+                        <div class="color-info">
+                            <div class="color-name">Electric Cyan</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#00B4D8</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">RGB</span>
+                                    <code class="color-value-code">0, 180, 216</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">HSL</span>
+                                    <code class="color-value-code">190°, 100%, 42%</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Primary brand color, CTAs, triangle element, links
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#FE4B58', 'Coral Red')">
+                        <div class="color-swatch" style="background: #FE4B58;">●</div>
+                        <div class="color-info">
+                            <div class="color-name">Coral Red</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#FE4B58</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">RGB</span>
+                                    <code class="color-value-code">254, 75, 88</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">HSL</span>
+                                    <code class="color-value-code">356°, 99%, 65%</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Action color, secondary CTAs, dot element, accents
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#0F172A', 'Deep Navy')">
+                        <div class="color-swatch" style="background: #0F172A; color: #00B4D8;">Aa</div>
+                        <div class="color-info">
+                            <div class="color-name">Deep Navy</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#0F172A</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">RGB</span>
+                                    <code class="color-value-code">15, 23, 42</code>
+                                </div>
+                                <div class="color-value">
+                                    <span class="color-value-label">HSL</span>
+                                    <code class="color-value-code">222°, 47%, 11%</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Primary text, headings, dark backgrounds
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 id="colors-secondary" class="mt-12">Secondary Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card" onclick="copyToClipboard('#0EA5E9', 'Bright Sky')">
+                        <div class="color-swatch" style="background: #0EA5E9;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Bright Sky</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#0EA5E9</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Lighter cyan, hover states, highlights
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#7DD3FC', 'Sky Light')">
+                        <div class="color-swatch" style="background: #7DD3FC; color: #0F172A;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Sky Light</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#7DD3FC</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Backgrounds, subtle accents, borders
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#FF6B7A', 'Coral Pink')">
+                        <div class="color-swatch" style="background: #FF6B7A;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Coral Pink</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#FF6B7A</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Lighter accent, hover states, highlights
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#6366F1', 'Indigo')">
+                        <div class="color-swatch" style="background: #6366F1;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Indigo</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#6366F1</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Purple accent, gradients, special features
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 id="colors-neutral" class="mt-12">Neutral Scale</h3>
+                <div class="color-grid">
+                    <div class="color-card" onclick="copyToClipboard('#F8FAFC', 'Slate 50')">
+                        <div class="color-swatch" style="background: #F8FAFC; border: 1px solid #E2E8F0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Slate 50</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#F8FAFC</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Light backgrounds, surfaces
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#E2E8F0', 'Slate 200')">
+                        <div class="color-swatch" style="background: #E2E8F0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Slate 200</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#E2E8F0</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Borders, dividers, subtle backgrounds
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#64748B', 'Slate 500')">
+                        <div class="color-swatch" style="background: #64748B;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Slate 500</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#64748B</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Secondary text, placeholders, disabled states
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-card" onclick="copyToClipboard('#1E293B', 'Slate 800')">
+                        <div class="color-swatch" style="background: #1E293B;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Slate 800</div>
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <span class="color-value-label">HEX</span>
+                                    <code class="color-value-code">#1E293B</code>
+                                </div>
+                            </div>
+                            <div class="color-usage-text">
+                                <strong>Usage:</strong> Dark mode surfaces, elevated elements
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout callout-success mt-8">
+                    <div class="callout-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Accessibility Compliance
+                    </div>
+                    <div class="callout-content">
+                        <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                            <li><strong>Electric Cyan on white:</strong> WCAG AAA compliant (4.89:1 ratio)</li>
+                            <li><strong>Coral Red on white:</strong> WCAG AA compliant (4.15:1 ratio)</li>
+                            <li><strong>Deep Navy on white:</strong> WCAG AAA compliant (17.83:1 ratio)</li>
+                            <li>All color combinations meet minimum WCAG 2.1 Level AA standards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-block mt-8">
+                    <div class="code-header">
+                        <span class="code-language">CSS Variables</span>
+                        <button class="code-copy-btn" onclick="copyCode('css-colors')">Copy</button>
+                    </div>
+                    <pre class="code-content" id="css-colors">:root {
+  <span class="token-property">--brand-cyan</span>: <span class="token-value">#00B4D8</span>;
+  <span class="token-property">--brand-coral</span>: <span class="token-value">#FE4B58</span>;
+  <span class="token-property">--brand-navy</span>: <span class="token-value">#0F172A</span>;
+  <span class="token-property">--brand-purple</span>: <span class="token-value">#6366F1</span>;
+}</pre>
+                </div>
+            </section>
+
+            <!-- Typography -->
+            <section id="typography">
+                <div class="section-header">
+                    <h2 class="section-title">Typography</h2>
+                    <p class="section-description">Our type system uses Satoshi for display and headings paired with Inter for body text. This combination provides excellent readability, strong personality, and optimal performance across all platforms.</p>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="type-sample">
+                        <div class="type-label">Display 1 - Satoshi Black</div>
+                        <div class="type-display display-1">Building the future</div>
+                        <div class="type-meta">Font: Satoshi / Size: 90px / Weight: 900 / Line Height: 1.1</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Display 2 - Satoshi ExtraBold</div>
+                        <div class="type-display display-2">Transform your vision</div>
+                        <div class="type-meta">Font: Satoshi / Size: 67px / Weight: 800 / Line Height: 1.1</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Heading 1 - Satoshi Bold</div>
+                        <div class="type-display heading-1">Innovation starts here</div>
+                        <div class="type-meta">Font: Satoshi / Size: 50px / Weight: 700 / Line Height: 1.2</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Heading 2 - Satoshi Bold</div>
+                        <div class="type-display heading-2">Design that inspires</div>
+                        <div class="type-meta">Font: Satoshi / Size: 38px / Weight: 700 / Line Height: 1.2</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Heading 3 - Satoshi SemiBold</div>
+                        <div class="type-display heading-3">Create with confidence</div>
+                        <div class="type-meta">Font: Satoshi / Size: 28px / Weight: 600 / Line Height: 1.3</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Body XL - Inter Regular</div>
+                        <div class="type-display body-xl">Our mission is to empower teams through intuitive design and powerful technology, creating experiences that delight users and drive meaningful results.</div>
+                        <div class="type-meta">Font: Inter / Size: 21px / Weight: 400 / Line Height: 1.7</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Body Large - Inter Regular</div>
+                        <div class="type-display body-lg">Inter was specifically designed for user interfaces and screen readability. Its carefully crafted letterforms remain clear at any size, making it ideal for body text and UI elements.</div>
+                        <div class="type-meta">Font: Inter / Size: 18px / Weight: 400 / Line Height: 1.6</div>
+                    </div>
+
+                    <div class="type-sample">
+                        <div class="type-label">Body Base - Inter Regular</div>
+                        <div class="type-display body-base">The perfect balance of form and function. Our typography system ensures maximum readability while maintaining distinctive character across all brand touchpoints.</div>
+                        <div class="type-meta">Font: Inter / Size: 16px / Weight: 400 / Line Height: 1.6</div>
+                    </div>
+                </div>
+
+                <div class="callout callout-info mt-8">
+                    <div class="callout-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Typography Guidelines
+                    </div>
+                    <div class="callout-content">
+                        <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                            <li><strong>Display & Headings:</strong> Use Satoshi (weights 600-900) for all display text and headings</li>
+                            <li><strong>Body & UI:</strong> Use Inter (weights 400-700) for paragraphs, buttons, and interface elements</li>
+                            <li><strong>Minimum Sizes:</strong> 14px for body text, 12px for captions and labels</li>
+                            <li><strong>Line Height:</strong> 1.5-1.7 for body text, 1.1-1.3 for headings</li>
+                            <li><strong>Type Scale:</strong> Follow the Perfect Fourth scale (1.333 ratio) for consistent hierarchy</li>
+                            <li><strong>Both fonts are available free via Google Fonts and Fontshare</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Components -->
+            <section id="components">
+                <div class="section-header">
+                    <h2 class="section-title">Component Library</h2>
+                    <p class="section-description">Reusable UI components built with our design system. These examples demonstrate proper implementation of colors, typography, and spacing.</p>
+                </div>
+
+                <h3>Buttons</h3>
+                <div style="background: white; padding: 3rem; border-radius: 1rem; border: 1px solid var(--neutral-200); margin-bottom: 3rem;">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-outline">Outline Button</button>
+                        <button class="btn btn-ghost">Ghost Button</button>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary btn-lg">Large Primary</button>
+                        <button class="btn btn-secondary btn-lg">Large Secondary</button>
+                    </div>
+                </div>
+
+                <h3>Cards</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--neutral-200);">
+                        <h4 style="margin-bottom: 1rem;">Feature Card</h4>
+                        <p style="color: var(--neutral-600); margin-bottom: 1.5rem;">This card demonstrates the use of proper spacing, typography hierarchy, and our color system for creating engaging content blocks.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(99, 102, 241, 0.1)); padding: 2rem; border-radius: 1rem; border: 1px solid var(--brand-cyan-primary);">
+                        <h4 style="margin-bottom: 1rem;">Gradient Card</h4>
+                        <p style="color: var(--neutral-700); margin-bottom: 1.5rem;">Subtle brand gradients create visual interest without overwhelming content. Use sparingly for emphasis.</p>
+                        <button class="btn btn-secondary">Get Started</button>
+                    </div>
+                </div>
+
+                <h3>Dark Mode Example</h3>
+                <div style="background: var(--neutral-900); padding: 3rem; border-radius: 1rem; margin-bottom: 3rem;">
+                    <h3 style="color: white; margin-bottom: 1rem;">Dark Mode Interface</h3>
+                    <p style="color: var(--neutral-400); margin-bottom: 2rem; max-width: 600px;">Dark mode requires careful attention to contrast and hierarchy. Our color system provides appropriate variants for excellent readability in low-light environments.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary">Primary Action</button>
+                        <button class="btn btn-outline">Secondary Action</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guidelines -->
+            <section id="guidelines">
+                <div class="section-header">
+                    <h2 class="section-title">Usage Guidelines</h2>
+                    <p class="section-description">Best practices and requirements for maintaining brand consistency across all applications.</p>
+                </div>
+
+                <h3>Logo Usage</h3>
+                <div class="do-dont-grid">
+                    <div class="do-dont-card">
+                        <div class="do-dont-header do-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Do
+                        </div>
+                        <div class="do-dont-content">
+                            <ul class="do-dont-list">
+                                <li>Use the primary Electric Cyan logo on light backgrounds</li>
+                                <li>Maintain proper clear space equal to the dot height around logo</li>
+                                <li>Use the reversed white version on dark backgrounds or photography</li>
+                                <li>Scale proportionally maintaining aspect ratio</li>
+                                <li>Use approved color variations for appropriate contexts</li>
+                                <li>Ensure minimum size requirements are met for legibility</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="do-dont-card">
+                        <div class="do-dont-header dont-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                            Don't
+                        </div>
+                        <div class="do-dont-content">
+                            <ul class="do-dont-list">
+                                <li>Never stretch, distort, or alter the logo proportions</li>
+                                <li>Don't rotate, skew, or apply perspective transformations</li>
+                                <li>Never use unapproved colors or create new variations</li>
+                                <li>Don't place on busy backgrounds without proper contrast</li>
+                                <li>Never add effects like drop shadows, glows, or gradients to the logo</li>
+                                <li>Don't recreate or redraw the logo - always use official files</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-12">Color Usage</h3>
+                <div class="do-dont-grid">
+                    <div class="do-dont-card">
+                        <div class="do-dont-header do-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Do
+                        </div>
+                        <div class="do-dont-content">
+                            <ul class="do-dont-list">
+                                <li>Use Electric Cyan for primary CTAs and brand elements</li>
+                                <li>Use Coral Red for secondary actions and accents</li>
+                                <li>Ensure all text meets WCAG contrast requirements (4.5:1 minimum)</li>
+                                <li>Use gradients sparingly for backgrounds and decorative elements</li>
+                                <li>Maintain color consistency across all brand touchpoints</li>
+                                <li>Test colors in both light and dark environments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="do-dont-card">
+                        <div class="do-dont-header dont-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                            Don't
+                        </div>
+                        <div class="do-dont-content">
+                            <ul class="do-dont-list">
+                                <li>Never apply gradients directly to the logo itself</li>
+                                <li>Don't use more than 3 colors in a single composition</li>
+                                <li>Avoid using pure black (#000000) - use Deep Navy instead</li>
+                                <li>Don't create new color variations without approval</li>
+                                <li>Never compromise accessibility for aesthetic choices</li>
+                                <li>Don't use colors at opacities that fail contrast requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout callout-info mt-8">
+                    <div class="callout-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        Core Brand Principles
+                    </div>
+                    <div class="callout-content">
+                        <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                            <li><strong>Modern & Minimal:</strong> Embrace white space and clean layouts</li>
+                            <li><strong>Bold & Vibrant:</strong> Use color confidently to create impact</li>
+                            <li><strong>User-Focused:</strong> Prioritize clarity and usability in all applications</li>
+                            <li><strong>Consistent:</strong> Apply guidelines uniformly across all media and platforms</li>
+                            <li><strong>Accessible:</strong> Ensure content is perceivable and usable by everyone</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources">
+                <div class="section-header">
+                    <h2 class="section-title">Brand Resources</h2>
+                    <p class="section-description">Download official brand assets and access additional resources for implementing our design system.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--neutral-200);">
+                        <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                            </svg>
+                            Logo Package
+                        </h4>
+                        <p style="color: var(--neutral-600); margin-bottom: 1.5rem; font-size: 0.875rem;">All logo variations in SVG, PNG, and EPS formats for print and digital use.</p>
+                        <button class="btn btn-outline" style="width: 100%;">Download Logos</button>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--neutral-200);">
+                        <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <path d="M21 15l-5-5L5 21"/>
+                            </svg>
+                            Design Kit
+                        </h4>
+                        <p style="color: var(--neutral-600); margin-bottom: 1.5rem; font-size: 0.875rem;">Figma design library with components, colors, and typography styles.</p>
+                        <button class="btn btn-outline" style="width: 100%;">Coming Soon</button>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--neutral-200);">
+                        <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                            Code Library
+                        </h4>
+                        <p style="color: var(--neutral-600); margin-bottom: 1.5rem; font-size: 0.875rem;">CSS variables, React components, and implementation examples.</p>
+                        <button class="btn btn-outline" style="width: 100%;">Coming Soon</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download CTA -->
+            <section class="download-section">
+                <div class="download-content">
+                    <h2 class="download-title">Ready to Build with Our Brand?</h2>
+                    <p class="download-description">Download this complete style guide and start creating consistent, beautiful brand experiences across all your projects.</p>
+                    <div class="download-actions">
+                        <button class="btn-download" onclick="downloadGuidelines()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                            </svg>
+                            Download HTML
+                        </button>
+                        <button class="btn btn-outline" style="background: rgba(255,255,255,0.2); color: white; border-color: white;" onclick="window.print()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                                <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+                                <path d="M6 14h12v8H6z"/>
+                            </svg>
+                            Print / Save PDF
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copyNotification"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Active TOC link highlighting
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -66%',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.toc-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(`${label} copied: ${text}`);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const text = codeElement.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Code copied to clipboard!');
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('copyNotification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Download functionality
+        function downloadGuidelines() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'brand-guidelines-v2.1.0.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('Brand guidelines downloaded successfully!');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.logo-card, .color-card, .type-specimen');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        };
+
+        // Initialize animations when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', animateOnScroll);
+        } else {
+            animateOnScroll();
+        }
+    </script>
+</body>
+</html>

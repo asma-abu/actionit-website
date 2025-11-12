@@ -16,35 +16,30 @@ export const features: Feature[] = [
     title: 'Automatically capture AI meeting notes and action items',
     description:
       'Get the most accurate meeting transcription - automatically! Action.IT is the AI meeting notetaker that records, transcribes, and summarizes meetings across Zoom, Google Meet, and MS Teams, so you can focus on the discussion.',
-    ctaText: 'Get started',
   },
   {
     id: 'ask-actionit',
     title: 'Ask Action.IT',
     description:
       "Get insights across your meetings with your own AI meeting chatbot. Prompt 'Ask Action.IT' to catch you up on meetings you missed, answer questions about specific meetings, and even write follow-up emails after a meeting.",
-    ctaText: 'Get started',
   },
   {
     id: 'centralized-library',
     title: 'All your recordings and recaps in one place',
     description:
       "Action.IT's library keeps all your recordings in one place. Privacy and sharing controls mean you can keep everything centralized while controlling who has access.",
-    ctaText: 'Get started',
   },
   {
     id: 'workflow-automation',
     title: 'Automate workflow updates',
     description:
       'Keep your workflows updated, automatically. Action.IT syncs meeting insights directly to Notion, Slack, and your calendar, suggesting fields to update based on what was discussed so your pipeline always stays accurate.',
-    ctaText: 'Get started',
   },
   {
     id: 'meeting-prep',
     title: 'Always show up prepared',
     description:
       "Smart meeting preparation and pre-meeting briefs mean you're always prepared for an effective meeting — even when you're in back-to-back meetings.",
-    ctaText: 'Get started',
   },
 ];
 
