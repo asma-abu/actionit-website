@@ -136,10 +136,10 @@ export const faqs: FAQ[] = [
 ];
 
 export const integrations: Integration[] = [
-  { id: 'Notion', name: 'Notion' },
-  { id: 'Zoom', name: 'Zoom' },
-  { id: 'Google Meet', name: 'Google Meet' },
-  { id: 'Microsoft Teams', name: 'Microsoft Teams' },
+  { id: 'Notion', name: 'Notion', logo: '/notion-logo-no-background.png' },
+  { id: 'Zoom', name: 'Zoom', logo: '/zoom.png' },
+  { id: 'Google Meet', name: 'Google Meet', logo: '/google.png' },
+  { id: 'Microsoft Teams', name: 'Microsoft Teams', logo: '/teams.png' },
 
 ];
 
@@ -189,25 +189,25 @@ export const steps: Step[] = [
   {
     id: 'joins',
     icon: 'Calendar',
-    title: '1. Action.IT Joins',
+    title: 'Action.IT Joins',
     description: 'Securely and automatically, via a calendar invite',
   },
   {
     id: 'analyzes',
     icon: 'Brain',
-    title: '2. AI Listens & Analyzes',
+    title: 'AI Listens & Analyzes',
     description: 'Transcribes and identifies key moments during the meeting',
   },
   {
     id: 'delivery',
     icon: 'LinkIcon',
-    title: '3. Instant Delivery',
+    title: 'Instant Delivery',
     description: 'Posts summary to your chosen platforms in seconds',
   },
   {
     id: 'deleted',
     icon: 'Trash2',
-    title: '4. Data Deleted',
+    title: 'Data is Deleted',
     description:
       "All meeting data is wiped from Action.IT's memory once delivered",
   },

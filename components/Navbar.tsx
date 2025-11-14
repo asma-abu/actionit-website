@@ -93,18 +93,19 @@ function Navbar() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/login"
+            href="#demo"            
             className="hidden rounded-full px-3 py-2 text-sm font-medium text-zinc-900/90 transition hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:text-zinc-200 md:inline-block min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Log in to action.it"
+            aria-label="Learn more about action.it"
+
           >
-            Log in
+            Learn more
           </Link>
           <Link
             href="/login"
             className="hidden rounded-full border border-white/20 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:bg-zinc-800/80 dark:text-white md:inline-block min-h-[44px] flex items-center justify-center"
             aria-label="Get started with action.it"
           >
-            Get started
+            Log in
           </Link>
 
           <button

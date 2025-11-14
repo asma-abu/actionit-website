@@ -12,20 +12,21 @@ function IntegrationsSection() {
   return (
     <section
       id="resources"
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#EDF2F7] to-[#FFFFFF] py-16 sm:py-20"
+      className="relative overflow-hidden py-16 sm:py-20"
       aria-labelledby="integrations-section-heading"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.06),transparent_50%)]" />
-      
-      <Container className="relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      </div>
+
+      <Container className="relative z-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="integrations-section-heading"
             className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
           >
-            Yes, action.it syncs with that
+            Yes, <span className="text-[#00B4D8] text-4xl font-bold">action.it</span> syncs with that!
           </h2>
           <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             We integrate with tools you're already using, so you can keep your meetings in action.
@@ -71,9 +72,6 @@ function IntegrationsSection() {
             </div>
           ))}
         </div>
-
-        {/* Bottom gradient fade */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#E2E8F0] to-transparent" />
       </Container>
 
       <style jsx>{`

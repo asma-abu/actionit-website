@@ -89,7 +89,7 @@ function HowItWorksSection() {
             id="how-it-works-heading"
             className="mt-2 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
           >
-            How action.it Works
+            How <span className="text-[#00B4D8] text-4xl font-bold">action.it</span> Works
           </h2>
           <p className="mt-3 text-base leading-7 text-zinc-600 sm:text-lg sm:leading-8 dark:text-zinc-400">
             A simple, secure process that delivers insights in seconds—then
@@ -137,9 +137,6 @@ function HowItWorksSection() {
                   )}
                 </div>
 
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                  Step {stepNumber}
-                </p>
                 <h3 className="mt-1.5 text-base font-semibold leading-snug text-zinc-900 sm:text-lg dark:text-white">
                   {step.title}
                 </h3>

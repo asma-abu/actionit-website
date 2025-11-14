@@ -14,9 +14,6 @@ const VideoDemoSection = lazy(
 const FeaturesSection = lazy(
   () => import('../components/sections/FeaturesSection')
 );
-const BuiltForTeamsSection = lazy(
-  () => import('../components/sections/BuiltForTeamsSection')
-);
 const EnterpriseSection = lazy(
   () => import('../components/sections/EnterpriseSection')
 );
@@ -45,9 +42,6 @@ export default function HomePage() {
       <SecuritySection />
       <Suspense fallback={<SectionSkeleton />}>
         <VideoDemoSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <BuiltForTeamsSection />
       </Suspense>
       <SolutionPillarsSection />
       <Suspense fallback={<SectionSkeleton />}>

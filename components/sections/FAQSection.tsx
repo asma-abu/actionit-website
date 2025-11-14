@@ -16,7 +16,7 @@ function FAQSection() {
   }
 
   return (
-    <section className="py-24 sm:py-32" aria-labelledby="faq-heading">
+    <section className="pb-8 sm:pt-8 sm:pb-12" aria-labelledby="faq-heading">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2

@@ -62,6 +62,30 @@ function HeroSection() {
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out forwards;
+        }
       `}</style>
 
       <Container className="relative pt-8 pb-24 md:pt-12 md:pb-32">
@@ -197,7 +221,7 @@ function HeroSection() {
 
           <div className="lg:order-2 text-center lg:text-left">
             <div
-              className="mb-8 inline-flex items-center gap-4 text-sm"
+              className="mb-8 inline-flex items-center gap-4 text-sm animate-fade-in"
               style={{
                 opacity: pillOpacity,
                 transition: 'opacity 150ms linear',
@@ -220,7 +244,7 @@ function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-5xl font-extrabold leading-[1.05] text-[#1E293B] sm:text-6xl md:text-7xl dark:text-[#1E293B]">
+            <h1 className="text-5xl font-extrabold leading-[1.05] text-[#1E293B] sm:text-6xl md:text-7xl dark:text-[#1E293B] animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
               Your meetings in <br />
               <span className="text-blue-500 drop-shadow-sm" style={{ textShadow: '0 2px 4px rgba(59, 130, 246, 0.3)' }}>action.</span> <br />
               <span className="whitespace-normal">
@@ -228,15 +252,14 @@ function HeroSection() {
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300 lg:mx-0">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300 lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
               An AI meeting assistant that joins your calls, posts summaries to
               your tools, then wipes the slate clean.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
               <Button
-                label="Start Free"
-                href="/login"
+                label="Free Trial - Coming Soon"
                 variant="primary"
                 size="md"
                 ariaLabel="Start Free with Action.IT"
