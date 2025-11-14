@@ -28,7 +28,7 @@ function FeaturesSection() {
   };
 
   return (
-    <section className="py-24 sm:py-32" aria-labelledby="features-heading">
+    <section className="py-16 sm:py-20" aria-labelledby="features-heading">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center rounded-full border border-zinc-200 bg-white/60 px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm backdrop-blur-sm dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-300">
@@ -36,7 +36,7 @@ function FeaturesSection() {
           </div>
           <h2
             id="features-heading"
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
+            className="text-4xl font-bold tracking-tight text-[#6366F1] sm:text-5xl"
           >
             Everything You Need
             <br />

@@ -176,10 +176,11 @@ function HeroSection() {
               </span>
             </div>
 
-            <h1 className="bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-700 bg-clip-text text-5xl font-extrabold leading-[1.05] text-transparent sm:text-6xl md:text-7xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-300">
-              Your meetings in action. <br />
+            <h1 className="text-5xl font-extrabold leading-[1.05] text-[#1E293B] sm:text-6xl md:text-7xl dark:text-[#1E293B]">
+              Your meetings in <br />
+              <span className="text-blue-500 drop-shadow-sm" style={{ textShadow: '0 2px 4px rgba(59, 130, 246, 0.3)' }}>action.</span> <br />
               <span className="whitespace-normal">
-                Insights delivered, data deleted.
+                Insights delivered, data <span className="text-[#64748B] opacity-70">deleted.</span>
               </span>
             </h1>
 

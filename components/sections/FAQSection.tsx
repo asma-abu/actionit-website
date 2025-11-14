@@ -21,9 +21,12 @@ function FAQSection() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="faq-heading"
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
+            className="text-4xl font-bold tracking-tight sm:text-5xl drop-shadow-sm"
+            style={{ 
+              color: '#00B4D8',
+            }}
           >
-            Frequently Asked Questions
+            FAQ's
           </h2>
         </div>
 

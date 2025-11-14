@@ -46,12 +46,12 @@ export default function HomePage() {
       <Suspense fallback={<SectionSkeleton />}>
         <VideoDemoSection />
       </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <BuiltForTeamsSection />
+      </Suspense>
       <SolutionPillarsSection />
       <Suspense fallback={<SectionSkeleton />}>
         <FeaturesSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <BuiltForTeamsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <EnterpriseSection />

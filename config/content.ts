@@ -136,19 +136,11 @@ export const faqs: FAQ[] = [
 ];
 
 export const integrations: Integration[] = [
-  { id: 'notion', name: 'Notion' },
-  {   id: 'slack',
-    name: 'Slack',
-    logo: '/logos/slack-logo.svg' },
-  { id: 'salesforce', name: 'Salesforce' },
-  { id: 'hubspot', name: 'HubSpot' },
-  { id: 'monday', name: 'Monday' },
-  { id: 'asana', name: 'Asana' },
-  { id: 'clickup', name: 'ClickUp' },
-  { id: 'jira', name: 'Jira' },
-  { id: 'linear', name: 'Linear' },
-  { id: 'confluence', name: 'Confluence' },
-  { id: 'zapier', name: 'Zapier' },
+  { id: 'Notion', name: 'Notion' },
+  { id: 'Zoom', name: 'Zoom' },
+  { id: 'Google Meet', name: 'Google Meet' },
+  { id: 'Microsoft Teams', name: 'Microsoft Teams' },
+
 ];
 
 export const painPoints: PainPoint[] = [
