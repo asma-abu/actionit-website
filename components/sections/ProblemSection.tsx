@@ -84,57 +84,6 @@ function ProblemSection() {
           </p>
         </div>
 
-        {/* Compact grid & cards */}
-        <div className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-4 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {painPoints.map((point) => {
-            const Icon = iconMap[point.icon];
-
-            return (
-              <div
-                key={point.id}
-                className="group relative mx-auto flex max-w-xs flex-col items-center text-center rounded-xl bg-gradient-to-b from-red-50/60 to-white/70 p-3 sm:p-4 shadow-sm backdrop-blur-sm ring-1 ring-red-100/40 transition-all hover:shadow-md hover:ring-red-200/60 dark:from-red-950/30 dark:to-zinc-800/70 dark:ring-red-900/40 dark:hover:ring-red-800/60"
-              >
-                {/* Smaller warning indicator */}
-                <div className="absolute -top-1.5 -right-1.5 h-3 w-3 animate-pulse">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400/30 opacity-75" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500/20 ring-1 ring-red-500/30" />
-                </div>
-
-                {/* Smaller icon wrapper */}
-                <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 text-white shadow-md shadow-red-500/20 transition-transform group-hover:scale-[1.03] dark:from-red-600 dark:to-red-700 dark:shadow-red-900/30">
-                  <div className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-bl-sm bg-red-400/40" />
-                  {Icon || (
-                    <svg
-                      className="h-5 w-5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                      />
-                    </svg>
-                  )}
-                </div>
-
-                {/* Compact text */}
-                <h3 className="mt-3 text-sm font-semibold text-zinc-900 dark:text-white">
-                  {point.title}
-                </h3>
-                <p className="mt-1.5 max-w-[230px] text-xs sm:text-[13px] leading-snug text-zinc-600 dark:text-zinc-400">
-                  {point.description}
-                </p>
-
-                {/* Shorter accent line */}
-                <div className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-red-300/50 to-transparent dark:via-red-700/30" />
-              </div>
-            );
-          })}
-        </div>
       </Container>
     </section>
   );

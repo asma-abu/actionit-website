@@ -5,7 +5,6 @@ import HeroSection from '../components/sections/HeroSection';
 import ProblemSection from '../components/sections/ProblemSection';
 import SolutionPillarsSection from '../components/sections/SolutionPillarsSection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
-import IntegrationLogosSection from '../components/sections/IntegrationLogosSection';
 import SecuritySection from '../components/sections/SecuritySection';
 import Footer from '../components/Footer';
 
@@ -44,7 +43,6 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <HowItWorksSection />
-      <IntegrationLogosSection />
       <SecuritySection />
       <ProblemSection />
       <Suspense fallback={<SectionSkeleton />}>
