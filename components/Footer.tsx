@@ -36,13 +36,13 @@ const companyLinks = [
 
 function Footer() {
   return (
-    <footer className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+    <footer className="border-t border-zinc-200 bg-gray-900 dark:border-zinc-800 dark:bg-zinc-900">
       <Container>
         <div className="py-12 lg:py-16">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="lg:col-span-1">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="lg:col-span-2">
               <div className="mb-4">
-                <span className="text-xl font-semibold text-zinc-900 dark:text-white">
+                <span className="text-xl font-semibold text-white dark:text-white">
                   action.it
                 </span>
               </div>
@@ -51,46 +51,33 @@ function Footer() {
                 <br />
                 Ottawa, ON K1K 4R4, Canada
               </address>
+              
+              <div className="max-w-xl lg:max-w-lg mt-8 w-2/3">
+                <h2 className="text-4xl font-semibold tracking-tight !text-white">Subscribe to our newsletter</h2>
+                <div className="mt-6 flex max-w-md gap-x-4">
+                  <label htmlFor="email-address" className="sr-only">
+                    Email address
+                  </label>
+                  <input
+                    id="email-address"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    autoComplete="email"
+                    className="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                  />
+                  <button
+                    type="submit"
+                    className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
             </div>
-
             <div>
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                Product
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {productLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40 rounded"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                Solutions
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {solutionsLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40 rounded"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
+              <h3 className="text-sm font-semibold !text-white">
                 Company
               </h3>
               <ul className="mt-4 space-y-3">

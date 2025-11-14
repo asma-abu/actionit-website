@@ -27,10 +27,10 @@ function HeroSection() {
 
   return (
     <section
-      className="relative isolate min-h-screen overflow-hidden"
+      className="relative isolate min-h-screen overflow-hidden -mt-20 pt-20"
       aria-label="Hero section"
     >
-      <div className="absolute inset-0 -z-20 hero-gradient" />
+      <div className="absolute left-0 right-0 -z-20 hero-gradient" />
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -122,6 +122,7 @@ function HeroSection() {
         </div>
       </Container>
     </section>
+
   );
 }
 
