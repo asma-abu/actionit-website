@@ -117,13 +117,12 @@ function IntegratedVideoSection() {
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold text-indigo-600">Deploy faster</p>
+              <p className="text-base/7 font-semibold text-indigo-600">Increase Productivity</p>
               <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                 A better workflow
               </h1>
               <p className="mt-6 text-xl/8 text-gray-700">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas.
-              </p>
+              Your meetings produce action-oriented action.it promptly delivers them to Slack, Salesforce, Notion, and other apps before erasing all local data.               </p>
             </div>
           </div>
         </div>
@@ -217,8 +216,7 @@ function IntegratedVideoSection() {
           <div className="lg:pr-4">
             <div className="max-w-xl text-base/7 text-gray-600 lg:max-w-lg">
               <p>
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.
-              </p>
+              No manual copying. No data lingering on servers. Just automatic, secure workflow updates that keep your team aligned without compromising privacy.              </p>
               <ul role="list" className="mt-8 space-y-8 text-gray-600">
                 <li className="flex gap-x-3">
                   <svg 
@@ -234,7 +232,8 @@ function IntegratedVideoSection() {
                     />
                   </svg>
                   <span>
-                    <strong className="font-semibold text-gray-900">Push to deploy.</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                    <strong className="font-semibold text-gray-900">Pre-Meeting.</strong> Prepare with Context
+                    Smart pre-meeting briefs mean you show up ready. Action.IT surfaces relevant context from past meetings, previous discussions with the same stakeholder, and key decisions that impact today's conversation—all without storing data after the meeting ends.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
@@ -251,7 +250,8 @@ function IntegratedVideoSection() {
                     />
                   </svg>
                   <span>
-                    <strong className="font-semibold text-gray-900">SSL certificates.</strong> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                    <strong className="font-semibold text-gray-900">In-Meeting.</strong>  AI Listens, You Lead
+                    While you focus on the discussion, Action.IT transcribes in real-time, identifies decisions and action items, and flags follow-ups. Local processing means your words never leave your device until they're securely synced to your chosen tools.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
@@ -269,19 +269,18 @@ function IntegratedVideoSection() {
                     />
                   </svg>
                   <span>
-                    <strong className="font-semibold text-gray-900">Database backups.</strong> Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                    <strong className="font-semibold text-gray-900">Post-Meeting.</strong> Instant Delivery, Then Gone
+                    Within seconds of your meeting, summaries, tasks, and highlights land exactly where your team needs them—Notion, Salesforce, Slack, or any of 50+ integrated tools. Then Action.IT deletes everything. Clean. Compliant. Done.
                   </span>
                 </li>
               </ul>
               <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-              </p>
+              Deploy Action.IT anywhere, on any network, knowing your data stays yours. No cloud vendor lock-in. No "we might change our policy" concerns. Just security by architecture.              </p>
               <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                No server? No problem.
+                Your meeting is private? No problem.
               </h2>
               <p className="mt-6">
-                Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.
-              </p>
+              Your meetings are processed locally on your device, encrypted end-to-end, and never stored on Action.IT's servers. This isn't just a privacy feature—it's how we built the product from day one. You get powerful AI meeting intelligence without the server dependency.               </p>
             </div>
           </div>
         </div>
