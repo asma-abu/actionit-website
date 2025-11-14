@@ -12,16 +12,19 @@ const securityFeatures = [
 
 function SecuritySection() {
   return (
-    <section className="py-24 sm:py-32" aria-labelledby="security-heading">
+    <section 
+      className="py-24 sm:py-32 bg-zinc-900 dark:bg-black" 
+      aria-labelledby="security-heading"
+    >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="security-heading"
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
+            className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
           >
             Built for Privacy and Compliance
           </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 text-lg leading-8 text-zinc-300">
             We never use your conversations to train AI – in fact, we can't,
             because we don't keep them. Each recording is ephemeral, giving you
             full peace of mind.
@@ -33,7 +36,7 @@ function SecuritySection() {
             {securityFeatures.map((feature) => (
               <div
                 key={feature}
-                className="flex items-center gap-3 rounded-lg bg-white/60 p-4 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
+                className="flex items-center gap-3 rounded-lg bg-zinc-800/60 p-4 shadow-sm backdrop-blur-sm ring-1 ring-white/10 hover:bg-zinc-800/80 transition-colors"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500 text-white flex-shrink-0">
                   <svg
@@ -51,7 +54,7 @@ function SecuritySection() {
                     />
                   </svg>
                 </span>
-                <span className="text-sm font-medium text-zinc-900 dark:text-white">
+                <span className="text-sm font-medium text-white">
                   {feature}
                 </span>
               </div>
@@ -60,26 +63,26 @@ function SecuritySection() {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm">
             <div className="flex items-center gap-2">
-              <span className="text-green-600" aria-hidden="true">
+              <span className="text-green-400" aria-hidden="true">
                 ✓
               </span>
-              <span className="font-medium text-zinc-900 dark:text-white">
+              <span className="font-medium text-white">
                 Security: Verified
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-600" aria-hidden="true">
+              <span className="text-green-400" aria-hidden="true">
                 ✓
               </span>
-              <span className="font-medium text-zinc-900 dark:text-white">
+              <span className="font-medium text-white">
                 Privacy: Verified
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-600" aria-hidden="true">
+              <span className="text-green-400" aria-hidden="true">
                 ✓
               </span>
-              <span className="font-medium text-zinc-900 dark:text-white">
+              <span className="font-medium text-white">
                 Compliance: Verified
               </span>
             </div>

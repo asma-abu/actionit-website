@@ -28,57 +28,55 @@ function FAQSection() {
         </div>
 
         <div className="mx-auto mt-16 max-w-3xl">
-          <dl className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq) => {
               const isOpen = openId === faq.id;
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl bg-white/60 p-6 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
+                  className="rounded-2xl bg-white/60 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10 overflow-hidden"
                 >
-                  <dt>
-                    <button
-                      type="button"
-                      className="flex w-full items-start justify-between text-left focus:outline-none focus:ring-2 focus:ring-brand/40 rounded-lg"
-                      onClick={() => handleToggle(faq.id)}
-                      aria-expanded={isOpen}
-                      aria-controls={`faq-answer-${faq.id}`}
+                  <button
+                    type="button"
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-zinc-50/50 dark:hover:bg-zinc-700/50 transition-colors"
+                    onClick={() => handleToggle(faq.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${faq.id}`}
+                  >
+                    <span className="text-lg font-semibold text-zinc-900 dark:text-white pr-4">
+                      {faq.question}
+                    </span>
+                    <svg
+                      className={`h-6 w-6 flex-shrink-0 transform transition-transform text-zinc-900 dark:text-white ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
-                      <span className="text-lg font-semibold text-zinc-900 dark:text-white pr-4">
-                        {faq.question}
-                      </span>
-                      <span className="ml-6 flex h-7 items-center flex-shrink-0">
-                        <svg
-                          className={`h-6 w-6 transform transition-transform ${
-                            isOpen ? 'rotate-180' : ''
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </dt>
-                  <dd
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  <div
                     id={`faq-answer-${faq.id}`}
-                    className={`mt-4 overflow-hidden text-base leading-7 text-zinc-600 dark:text-zinc-400 transition-all duration-300 ${
-                      isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen ? 'max-h-96 pb-4' : 'max-h-0'
                     }`}
                   >
-                    <p>{faq.answer}</p>
-                  </dd>
+                    <p className="text-base leading-7 text-zinc-600 dark:text-zinc-400">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               );
             })}
-          </dl>
+          </div>
         </div>
       </Container>
     </section>
