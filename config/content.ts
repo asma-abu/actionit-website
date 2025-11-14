@@ -239,22 +239,19 @@ export const videoTabs: VideoTab[] = [
     id: 'pre-meeting',
     label: 'Pre Meeting',
     icon: 'Calendar',
-    videoUrl:
-      'https://framerusercontent.com/assets/0aVJPiVEXyEeQvqHvAopLsDNnE.mp4',
+    videoUrl: '/Actionit Launch Video.MP4',
   },
   {
     id: 'in-meeting',
     label: 'In Meeting',
     icon: 'MessageSquare',
-    videoUrl:
-      'https://framerusercontent.com/assets/Rd1NMl9rBgjsbkNhlcEURZCPX8.mp4',
+    videoUrl: '/Actionit Launch Video.MP4',
   },
   {
     id: 'post-meeting',
     label: 'Post Meeting',
     icon: 'FileText',
-    videoUrl:
-      'https://framerusercontent.com/assets/b2bGsAa00ExBRCMQAvCs5WAxhzA.mp4',
+    videoUrl: '/Actionit Launch Video.MP4',
   },
 ];
 
