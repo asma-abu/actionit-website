@@ -45,11 +45,20 @@ function Footer() {
                   action.it
                 </span>
               </div>
-              <address className="not-italic text-sm text-zinc-300 dark:text-zinc-400">
-                532 Montréal Rd #275
+              <address className="not-italic text-base text-zinc-300 dark:text-zinc-400">
+                8 The Green, Suite B
                 <br />
-                Ottawa, ON K1K 4R4, Canada
+                Dover, DE 19901
+                <br />
+                United States
               </address>
+              <br />
+              <a
+                href="mailto:info@actionit.ai"
+                className="mt-3 block text-base text-zinc-300 transition hover:text-white dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand/40"
+              >
+                info@actionit.ai
+              </a>
             </div>
 
             {/* Company links */}
