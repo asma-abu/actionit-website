@@ -18,9 +18,13 @@ export default function FontLoader() {
     document.head.appendChild(link);
 
     return () => {
-      // Cleanup on unmount (optional)
-      document.head.removeChild(preconnect);
-      document.head.removeChild(link);
+      // Cleanup on unmount
+      if (document.head.contains(preconnect)) {
+        document.head.removeChild(preconnect);
+      }
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
     };
   }, []);
 

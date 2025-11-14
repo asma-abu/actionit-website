@@ -57,7 +57,7 @@ const iconMap: Record<string, React.ReactElement> = {
 
 function VideoDemoSection() {
   const [activeTab, setActiveTab] = useState(
-    videoTabs && videoTabs.length > 0 ? videoTabs[0].id : ''
+    videoTabs?.[0]?.id ?? ''
   );
   const [videoError, setVideoError] = useState<string | null>(null);
 
@@ -72,7 +72,7 @@ function VideoDemoSection() {
 
   const activeVideo = useMemo(() => {
     if (!videoTabs || videoTabs.length === 0) return null;
-    return videoTabs.find((tab) => tab.id === activeTab) || videoTabs[0];
+    return videoTabs.find((tab) => tab.id === activeTab) ?? videoTabs[0];
   }, [activeTab]);
 
   if (!videoTabs || videoTabs.length === 0) {

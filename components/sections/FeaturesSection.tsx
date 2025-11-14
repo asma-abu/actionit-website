@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, memo } from 'react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import { features } from '../../config/content';
@@ -137,4 +137,4 @@ function FeaturesSection() {
   );
 }
 
-export default FeaturesSection;
+export default memo(FeaturesSection);

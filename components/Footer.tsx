@@ -48,11 +48,8 @@ function Footer() {
                 <br />
                 Ottawa, ON K1K 4R4, Canada
               </address>
-              
-
             </div>
 
-            
             <div>
               <h3 className="text-sm font-semibold !text-white">
                 Company

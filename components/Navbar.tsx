@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useState, useCallback, memo } from "react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useEffect, useState, useCallback, memo } from 'react';
 
 const NAV_ITEMS = [
-  { href: "#product", label: "Product" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#resources", label: "Resources" },
+  { href: '#product', label: 'Product' },
+  { href: '#solutions', label: 'Solutions' },
+  { href: '#resources', label: 'Resources' },
 ] as const;
 
 function Navbar() {
@@ -15,18 +15,18 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = useCallback(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setScrolled(window.scrollY > 8);
     }
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
 
@@ -40,7 +40,7 @@ function Navbar() {
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         setOpen(false);
       }
     },
@@ -50,17 +50,11 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 pointer-events-none mx-auto w-full max-w-screen-2xl px-4 safe-top">
       <nav
-        className={[
-          "pointer-events-auto flex items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 md:px-6",
-          "backdrop-blur-xl transition-all duration-300",
-          "border-white/15 shadow-[0_2px_20px_rgba(0,0,0,0.10)]",
-          "bg-white/10 dark:bg-zinc-900/30",
+        className={`pointer-events-auto flex items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 md:px-6 backdrop-blur-xl transition-all duration-300 border-white/15 shadow-[0_2px_20px_rgba(0,0,0,0.10)] bg-white/10 dark:bg-zinc-900/30 ${
           scrolled
-            ? "bg-white/40 dark:bg-zinc-900/50 shadow-[0_6px_30px_rgba(0,0,0,0.15)]"
-            : "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+            ? 'bg-white/40 dark:bg-zinc-900/50 shadow-[0_6px_30px_rgba(0,0,0,0.15)]'
+            : ''
+        }`}
         aria-label="Global navigation"
       >
         <div className="flex items-center gap-2">
@@ -105,7 +99,6 @@ function Navbar() {
           >
             Log in
           </Link>
-
           <Link
             href="/login"
             className="hidden rounded-full border border-white/20 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:bg-zinc-800/80 dark:text-white md:inline-block min-h-[44px] flex items-center justify-center"
@@ -124,7 +117,7 @@ function Navbar() {
           >
             <span className="sr-only">Toggle menu</span>
             <svg
-              className={`h-5 w-5 ${open ? "hidden" : "block"}`}
+              className={`h-5 w-5 ${open ? 'hidden' : 'block'}`}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -134,7 +127,7 @@ function Navbar() {
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <svg
-              className={`h-5 w-5 ${open ? "block" : "hidden"}`}
+              className={`h-5 w-5 ${open ? 'block' : 'hidden'}`}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -149,16 +142,11 @@ function Navbar() {
 
       <div
         id="mobile-menu"
-        className={[
-          "md:hidden",
-          "mt-2 overflow-hidden rounded-2xl border border-white/15",
-          "bg-white/60 p-2 backdrop-blur-xl transition-all dark:bg-zinc-900/60",
+        className={`md:hidden mt-2 overflow-hidden rounded-2xl border border-white/15 bg-white/60 p-2 backdrop-blur-xl transition-all dark:bg-zinc-900/60 ${
           open
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "pointer-events-none -translate-y-2 opacity-0",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'pointer-events-none -translate-y-2 opacity-0'
+        }`}
         role="menu"
         aria-hidden={!open}
       >

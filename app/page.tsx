@@ -27,7 +27,6 @@ const IntegrationsSection = lazy(
 );
 const FAQSection = lazy(() => import('../components/sections/FAQSection'));
 
-
 // Loading placeholder component
 function SectionSkeleton() {
   return (
@@ -45,8 +44,8 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <HowItWorksSection />
-      <IntegrationLogosSection /> 
-      <SecuritySection />     
+      <IntegrationLogosSection />
+      <SecuritySection />
       <ProblemSection />
       <Suspense fallback={<SectionSkeleton />}>
         <VideoDemoSection />
