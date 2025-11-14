@@ -26,9 +26,7 @@ const IntegrationsSection = lazy(
   () => import('../components/sections/IntegrationsSection')
 );
 const FAQSection = lazy(() => import('../components/sections/FAQSection'));
-const FinalCTASection = lazy(
-  () => import('../components/sections/FinalCTASection')
-);
+
 
 // Loading placeholder component
 function SectionSkeleton() {
@@ -46,14 +44,14 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <HowItWorksSection />
+      <IntegrationLogosSection /> 
+      <SecuritySection />     
       <ProblemSection />
       <Suspense fallback={<SectionSkeleton />}>
         <VideoDemoSection />
       </Suspense>
       <SolutionPillarsSection />
-      <HowItWorksSection />
-      <IntegrationLogosSection />
-      <SecuritySection />
       <Suspense fallback={<SectionSkeleton />}>
         <FeaturesSection />
       </Suspense>
@@ -68,9 +66,6 @@ export default function HomePage() {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <FinalCTASection />
       </Suspense>
       <Footer />
     </main>

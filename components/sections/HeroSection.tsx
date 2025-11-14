@@ -49,7 +49,7 @@ function HeroSection() {
         aria-hidden="true"
       />
 
-      <Container className="relative pt-16 pb-24 md:pt-20 md:pb-32">
+      <Container className="relative pt-8 pb-24 md:pt-12 md:pb-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <div className="hidden lg:block lg:order-1" aria-hidden="true">
             {/* Browser mockup with glassmorphism */}
@@ -177,9 +177,9 @@ function HeroSection() {
             </div>
 
             <h1 className="bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-700 bg-clip-text text-5xl font-extrabold leading-[1.05] text-transparent sm:text-6xl md:text-7xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-300">
-              My meetings in action –<br />
+              Your meetings in action. <br />
               <span className="whitespace-normal">
-                insights delivered, data deleted.
+                Insights delivered, data deleted.
               </span>
             </h1>
 

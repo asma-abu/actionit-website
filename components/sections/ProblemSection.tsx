@@ -1,13 +1,14 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, type ReactNode } from 'react';
 import Container from '../ui/Container';
 import { painPoints } from '../../config/content';
 
-const iconMap: Record<string, React.ReactElement> = {
+// Icons kept the same, but you can also reduce their visual size via className if you want even smaller
+const iconMap: Record<string, ReactNode> = {
   Database: (
     <svg
-      className="h-6 w-6"
+      className="h-5 w-5"  // ⬅️ was h-6 w-6
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -23,7 +24,7 @@ const iconMap: Record<string, React.ReactElement> = {
   ),
   Workflow: (
     <svg
-      className="h-6 w-6"
+      className="h-5 w-5"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -39,7 +40,7 @@ const iconMap: Record<string, React.ReactElement> = {
   ),
   FileText: (
     <svg
-      className="h-6 w-6"
+      className="h-5 w-5"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -63,52 +64,73 @@ function ProblemSection() {
   return (
     <section
       id="product"
-      className="py-24 sm:py-32"
+      className="py-20 sm:py-24" // ⬅️ slightly less vertical space for whole section
       aria-labelledby="problem-heading"
     >
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-xl text-center">
           <h2
             id="problem-heading"
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
+            className="!text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white"
           >
-            Not another AI note-taker –<br />
-            <span className="text-zinc-600 dark:text-zinc-400">
-              a smarter approach
+            Not another AI note-taker... <br />
+            <span className="!text-3xl text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
+              A smarter approach
             </span>
           </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-sm sm:text-base leading-6 text-zinc-600 dark:text-zinc-400">
             Worried your meeting recorder is keeping your data? Tired of sifting
             through transcripts?
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        {/* Compact grid & cards */}
+        <div className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-4 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {painPoints.map((point) => {
             const Icon = iconMap[point.icon];
+
             return (
               <div
                 key={point.id}
-                className="flex flex-col rounded-2xl bg-white/60 p-8 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
+                className="group relative mx-auto flex max-w-xs flex-col items-center text-center rounded-xl bg-gradient-to-b from-red-50/60 to-white/70 p-3 sm:p-4 shadow-sm backdrop-blur-sm ring-1 ring-red-100/40 transition-all hover:shadow-md hover:ring-red-200/60 dark:from-red-950/30 dark:to-zinc-800/70 dark:ring-red-900/40 dark:hover:ring-red-800/60"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                {/* Smaller warning indicator */}
+                <div className="absolute -top-1.5 -right-1.5 h-3 w-3 animate-pulse">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400/30 opacity-75" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500/20 ring-1 ring-red-500/30" />
+                </div>
+
+                {/* Smaller icon wrapper */}
+                <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 text-white shadow-md shadow-red-500/20 transition-transform group-hover:scale-[1.03] dark:from-red-600 dark:to-red-700 dark:shadow-red-900/30">
+                  <div className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-bl-sm bg-red-400/40" />
                   {Icon || (
                     <svg
-                      className="h-6 w-6"
-                      fill="currentColor"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
                     </svg>
                   )}
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
+
+                {/* Compact text */}
+                <h3 className="mt-3 text-sm font-semibold text-zinc-900 dark:text-white">
                   {point.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                <p className="mt-1.5 max-w-[230px] text-xs sm:text-[13px] leading-snug text-zinc-600 dark:text-zinc-400">
                   {point.description}
                 </p>
+
+                {/* Shorter accent line */}
+                <div className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-red-300/50 to-transparent dark:via-red-700/30" />
               </div>
             );
           })}
