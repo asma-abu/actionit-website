@@ -44,10 +44,10 @@ function EnterpriseSection() {
             id="enterprise-heading"
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white"
           >
-            Action.IT for Enterprise
+            <span className="text-[#00B4D8] text-4xl font-bold">action.it</span> for Enterprise
           </h2>
           <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-            Say goodbye to disjointed AI meeting assistants. Action.IT is the
+            Say goodbye to disjointed AI meeting assistants. <span className="text-[#00B4D8] font-bold text-lg">action.it</span> is the
             only AI meeting assistant built for the entire organization. Get
             centralized meeting insights without compromising the privacy and
             security of your internal meeting data.

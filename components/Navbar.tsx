@@ -61,7 +61,7 @@ function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 rounded-md"
-            aria-label="Action.IT Home"
+            aria-label="action.it Home"
           >
             <Image
               src="/ehanced_logo.png"
@@ -71,8 +71,8 @@ function Navbar() {
               className="rounded-md"
               priority
             />
-            <span className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              actionit.ai
+            <span className="text-xl font-semibold tracking-tight text-[#00B4D8] dark:text-white">
+              action.it
             </span>
           </Link>
         </div>
@@ -95,14 +95,14 @@ function Navbar() {
           <Link
             href="/login"
             className="hidden rounded-full px-3 py-2 text-sm font-medium text-zinc-900/90 transition hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:text-zinc-200 md:inline-block min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Log in to Action.IT"
+            aria-label="Log in to action.it"
           >
             Log in
           </Link>
           <Link
             href="/login"
             className="hidden rounded-full border border-white/20 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:bg-zinc-800/80 dark:text-white md:inline-block min-h-[44px] flex items-center justify-center"
-            aria-label="Get started with Action.IT"
+            aria-label="Get started with action.it"
           >
             Get started
           </Link>

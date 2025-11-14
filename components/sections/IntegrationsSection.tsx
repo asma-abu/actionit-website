@@ -25,11 +25,11 @@ function IntegrationsSection() {
             id="integrations-section-heading"
             className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-white"
           >
-            Yes, Action.IT syncs with that
+            Yes, action.it syncs with that
           </h2>
           <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             We integrate with tools you're already using, so you can keep your meetings in action.
-            Action.IT connects your meetings to the rest of your workflow so
+            action.it connects your meetings to the rest of your workflow so
             everything is always up-to-date.
           </p>
         </div>

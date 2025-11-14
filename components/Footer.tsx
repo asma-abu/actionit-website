@@ -25,7 +25,7 @@ const solutionsLinks = [
 ] as const;
 
 const companyLinks = [
-  { href: '/about', label: 'About Action.IT' },
+  { href: '/about', label: 'About action.it' },
   { href: '/contact', label: 'Contact Us' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Use' },

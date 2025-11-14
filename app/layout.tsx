@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Action.IT - Your Secure AI Meeting Assistant',
+  title: 'action.it - Your Secure AI Meeting Assistant',
   description: 'An AI meeting assistant that joins your calls, posts summaries to your tools, then wipes the slate clean. Privacy-first, automated, intelligent.',
 };
 

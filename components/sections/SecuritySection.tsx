@@ -13,7 +13,7 @@ const securityFeatures = [
 function SecuritySection() {
   return (
     <section 
-      className="py-16 sm:py-20 bg-zinc-900 dark:bg-black" 
+      className="py-16 sm:py-20 bg-[#0F172A] dark:bg-black" 
       aria-labelledby="security-heading"
     >
       <Container>
@@ -22,7 +22,7 @@ function SecuritySection() {
             id="security-heading"
             className="text-4xl font-bold tracking-tight !text-white sm:text-5xl"
           >
-            Built for Privacy and Compliance
+            Built for <span className="text-[#6366F1]">Privacy</span> and <span className="text-[#7DD3FC]">Compliance</span>
           </h2>
           <p className="mt-6 text-lg leading-8 !text-zinc-300">
             We never use your conversations to train AI – in fact, we can't,

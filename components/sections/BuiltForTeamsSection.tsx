@@ -10,20 +10,11 @@ function BuiltForTeamsSection() {
   }
 
   return (
-    <section className="relative border-t border-zinc-100 py-24 sm:py-32 overflow-hidden dark:border-zinc-800" aria-labelledby="teams-heading">
-      {/* Background gradient mesh */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 h-96 w-96 bg-gradient-to-br from-cyan-400/10 to-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 h-96 w-96 bg-gradient-to-br from-pink-400/10 to-purple-500/10 rounded-full blur-3xl" />
-      </div>
-
-      {/* Top fade to white */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent dark:from-zinc-950 pointer-events-none z-0" />
-
+    <section className="border-t border-zinc-100 py-16 sm:py-20 px-4 sm:px-6 dark:border-zinc-800" aria-labelledby="teams-heading">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           {/* Enhanced badge with gradient border */}
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-0.5">
+          <div className="mb-4 inline-flex items-center rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-0.5">
             <div className="flex items-center rounded-full bg-white/90 px-5 py-2 backdrop-blur-sm dark:bg-zinc-900/90">
               <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-xs font-bold uppercase tracking-wider text-transparent">
                 Universal Team Support
@@ -36,20 +27,17 @@ function BuiltForTeamsSection() {
             id="teams-heading"
             className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-white"
           >
-            Built for
-            <br />
-            Every Team
-
+            Built for Every Team
           </h2>
           
           {/* Supporting text */}
-          <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
             Empowering teams across your organization with privacy-first meeting intelligence
           </p>
         </div>
 
         {/* Enhanced cards grid with stagger animation */}
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-4 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
           {teamTypes.map((team, index) => (
             <div
               key={team.id}
