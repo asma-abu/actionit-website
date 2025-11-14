@@ -2,7 +2,6 @@
 
 import { lazy, Suspense } from 'react';
 import HeroSection from '../components/sections/HeroSection';
-import ProblemSection from '../components/sections/ProblemSection';
 import SolutionPillarsSection from '../components/sections/SolutionPillarsSection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import SecuritySection from '../components/sections/SecuritySection';
@@ -44,7 +43,6 @@ export default function HomePage() {
       <HeroSection />
       <HowItWorksSection />
       <SecuritySection />
-      <ProblemSection />
       <Suspense fallback={<SectionSkeleton />}>
         <VideoDemoSection />
       </Suspense>

@@ -86,7 +86,7 @@ function VideoDemoSection() {
       aria-labelledby="demo-heading"
     >
       <Container>
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-[45rem]">
           <div className="flex justify-center">
             <div
               className="isolate inline-flex rounded-lg bg-white/60 p-1 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"

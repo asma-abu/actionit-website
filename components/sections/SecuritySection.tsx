@@ -13,7 +13,7 @@ const securityFeatures = [
 function SecuritySection() {
   return (
     <section 
-      className="py-24 sm:py-32 bg-zinc-900 dark:bg-black" 
+      className="py-16 sm:py-20 bg-zinc-900 dark:bg-black" 
       aria-labelledby="security-heading"
     >
       <Container>
@@ -31,7 +31,7 @@ function SecuritySection() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-2xl">
+        <div className="mx-auto mt-8 max-w-2xl sm:mt-12">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {securityFeatures.map((feature) => (
               <div
@@ -61,7 +61,7 @@ function SecuritySection() {
             ))}
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 text-sm">
             <div className="flex items-center gap-2">
               <span className="text-green-400" aria-hidden="true">
                 ✓

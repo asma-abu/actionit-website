@@ -12,7 +12,7 @@ function IntegrationsSection() {
   return (
     <section
       id="resources"
-      className="py-24 sm:py-32"
+      className="bg-[#E2E8F0] py-16 sm:py-20"
       aria-labelledby="integrations-section-heading"
     >
       <Container>

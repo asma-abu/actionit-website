@@ -12,12 +12,12 @@ function SolutionPillarsSection() {
   return (
     <section
       id="solutions"
-      className="bg-gray-900 py-24 sm:py-32"
+      className="bg-[#0F172A] py-16 sm:py-20"
       aria-labelledby="solution-heading"
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-400">
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-400">
             <span className="flex items-center gap-2">
               <span
                 className="h-2 w-2 rounded-full bg-green-500"
@@ -48,11 +48,11 @@ function SolutionPillarsSection() {
           </div>
         </div>
 
-        <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-center sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <dl className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-center px-4 sm:mt-12 sm:px-6 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {pillars.map((pillar) => (
-            <div key={pillar.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base/7 text-gray-400">{pillar.description}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+            <div key={pillar.id} className="mx-auto flex max-w-xs flex-col gap-y-3">
+              <dt className="text-sm text-gray-400">{pillar.description}</dt>
+              <dd className="order-first text-xl font-semibold tracking-tight text-white sm:text-2xl">
                 {pillar.title}
               </dd>
             </div>

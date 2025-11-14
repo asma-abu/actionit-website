@@ -137,7 +137,9 @@ export const faqs: FAQ[] = [
 
 export const integrations: Integration[] = [
   { id: 'notion', name: 'Notion' },
-  { id: 'slack', name: 'Slack' },
+  {   id: 'slack',
+    name: 'Slack',
+    logo: '/logos/slack-logo.svg' },
   { id: 'salesforce', name: 'Salesforce' },
   { id: 'hubspot', name: 'HubSpot' },
   { id: 'monday', name: 'Monday' },
