@@ -72,13 +72,13 @@ function Navbar() {
             <Image
               src="/ehanced_logo.png"
               alt=""
-              width={28}
-              height={28}
+              width={40}
+              height={40}
               className="rounded-md"
               priority
             />
-            <span className="text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
-              action.it
+            <span className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+              actionit.ai
             </span>
           </Link>
         </div>

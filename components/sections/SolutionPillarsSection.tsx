@@ -12,12 +12,12 @@ function SolutionPillarsSection() {
   return (
     <section
       id="solutions"
-      className="py-24 sm:py-32"
+      className="bg-gray-900 py-24 sm:py-32"
       aria-labelledby="solution-heading"
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-400">
             <span className="flex items-center gap-2">
               <span
                 className="h-2 w-2 rounded-full bg-green-500"
@@ -25,7 +25,7 @@ function SolutionPillarsSection() {
               />
               End-to-end encryption
             </span>
-            <span className="text-zinc-400" aria-hidden="true">
+            <span className="text-zinc-600" aria-hidden="true">
               •
             </span>
             <span className="flex items-center gap-2">
@@ -35,7 +35,7 @@ function SolutionPillarsSection() {
               />
               Immediate deletion
             </span>
-            <span className="text-zinc-400" aria-hidden="true">
+            <span className="text-zinc-600" aria-hidden="true">
               •
             </span>
             <span className="flex items-center gap-2">
@@ -48,21 +48,16 @@ function SolutionPillarsSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-center sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {pillars.map((pillar) => (
-            <div
-              key={pillar.id}
-              className="flex flex-col rounded-2xl bg-white/60 p-8 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/60 dark:ring-white/10"
-            >
-              <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+            <div key={pillar.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base/7 text-gray-400">{pillar.description}</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl">
                 {pillar.title}
-              </h3>
-              <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-                {pillar.description}
-              </p>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </Container>
     </section>
   );

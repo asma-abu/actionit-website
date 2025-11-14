@@ -220,3 +220,27 @@ input[type='submit'] {
   min-height: 44px;
   min-width: 44px;
 }
+
+
+/* Hero gradient - using brand colors, darker and starting from top */
+.hero-gradient {
+  background: linear-gradient(
+      145deg,
+      rgba(0, 180, 216, 0.35) 0%,
+      rgba(99, 102, 241, 0.30) 50%,
+      rgba(254, 75, 88, 0.25) 100%
+    ),
+    radial-gradient(
+      1400px 800px at 15% -15%,
+      rgba(0, 180, 216, 0.45),
+      transparent 65%
+    ),
+    radial-gradient(
+      1200px 700px at 85% 90%,
+      rgba(99, 102, 241, 0.35),
+      transparent 65%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  top: -80px;
+  height: calc(100% + 80px);
+}

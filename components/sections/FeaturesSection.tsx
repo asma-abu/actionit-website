@@ -100,7 +100,7 @@ function FeaturesSection() {
             {features.map((feature) => (
               <div
                 key={feature.id}
-                className="flex-none w-[85%] sm:w-[45%] lg:w-[calc(33.333%-16px)] snap-center"
+                className="flex-none w-[85%] sm:w-[45%] lg:w-[calc(25%-18px)] snap-center"
               >
                 <div className="flex flex-col h-full rounded-2xl bg-white/60 p-8 shadow-sm backdrop-blur-sm ring-1 ring-zinc-900/5 transition-all hover:shadow-xl hover:ring-zinc-900/10 dark:bg-zinc-800/60 dark:ring-white/10 dark:hover:ring-white/20">
                   <h3 className="!text-lg text-zinc-900 dark:text-white">

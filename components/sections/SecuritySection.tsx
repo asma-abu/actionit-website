@@ -20,11 +20,11 @@ function SecuritySection() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="security-heading"
-            className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+            className="text-4xl font-bold tracking-tight !text-white sm:text-5xl"
           >
             Built for Privacy and Compliance
           </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-300">
+          <p className="mt-6 text-lg leading-8 !text-zinc-300">
             We never use your conversations to train AI – in fact, we can't,
             because we don't keep them. Each recording is ephemeral, giving you
             full peace of mind.
