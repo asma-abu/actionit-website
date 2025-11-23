@@ -101,7 +101,7 @@ function Navbar() {
             Learn more
           </Link>
           <Link
-            href="/login"
+            href="https://actionit-app.vercel.app/login"
             className="hidden rounded-full border border-white/20 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 dark:border-white/10 dark:bg-zinc-800/80 dark:text-white md:inline-block min-h-[44px] flex items-center justify-center"
             aria-label="Get started with action.it"
           >
@@ -166,7 +166,7 @@ function Navbar() {
           ))}
           <li className="flex items-center gap-2 px-2 py-2" role="none">
             <Link
-              href="/login"
+              href="https://actionit-app.vercel.app/login"
               onClick={handleCloseMenu}
               className="flex-1 rounded-lg px-3 py-2 text-center font-medium text-zinc-900/90 transition hover:bg-white/70 hover:text-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800/70 min-h-[44px] flex items-center justify-center"
               role="menuitem"
@@ -174,7 +174,7 @@ function Navbar() {
               Log in
             </Link>
             <Link
-              href="/login"
+              href="https://actionit-app.vercel.app/login"
               onClick={handleCloseMenu}
               className="flex-1 rounded-lg border border-white/20 bg-white/80 px-3 py-2 text-center font-semibold text-zinc-900 shadow-sm transition hover:bg-white dark:border-white/10 dark:bg-zinc-800/80 dark:text-white min-h-[44px] flex items-center justify-center"
               role="menuitem"
