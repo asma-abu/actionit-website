@@ -258,8 +258,9 @@ function HeroSection() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
-              <Button
-                label="Free Trial - Coming Soon"
+            <Button
+                label="Get Started Free"
+                href="https://actionit-app.vercel.app/login"  // ✅ Add href
                 variant="primary"
                 size="md"
                 ariaLabel="Start Free with Action.IT"
